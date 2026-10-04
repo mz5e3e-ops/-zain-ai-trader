@@ -5,51 +5,55 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZAINBOT VIP</title>
 <style>
-body{margin:0;background:#080808;color:#f5d78e;font-family:sans-serif}
-.header{text-align:center;padding:25px 15px;background:radial-gradient(circle,#2a2410,#080808);position:relative}
+*{box-sizing:border-box}
+body{margin:0;background:#080808;color:#f5d78e;font-family:sans-serif;min-height:100vh}
+.header{text-align:center;padding:20px 15px 10px;background:radial-gradient(circle,#2a2410,#080808);position:relative}
 .live{position:absolute;top:12px;right:12px;background:#0d2915;border:1px solid #22c55e;color:#22c55e;padding:5px 12px;border-radius:20px;font-size:11px}
-.logo{width:140px;height:140px;margin:18px auto;border-radius:50%;border:3px solid #f5d78e;box-shadow:0 0 30px #f5d78e;background:#111;display:flex;align-items:center;justify-content:center;font-size:60px}
-.badges{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.logo{width:130px;height:130px;margin:15px auto;border-radius:50%;border:3px solid #f5d78e;box-shadow:0 0 30px #f5d78e;background:#111;display:flex;align-items:center;justify-content:center;font-size:55px}
+.badges{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}
 .badge{background:#0d2915;border:1px solid #22c55e;color:#22c55e;border-radius:20px;padding:6px 10px;font-size:10px}
-.toggle{display:flex;gap:12px;margin:15px}
-.t{flex:1;padding:13px;text-align:center;border-radius:30px;border:1px solid #f5d78e;font-weight:bold}
+.toggle{display:flex;gap:10px;margin:12px 15px}
+.t{flex:1;padding:12px;text-align:center;border-radius:30px;border:1px solid #f5d78e;font-weight:bold;font-size:12px}
 .on{background:linear-gradient(#f5d78e,#c9a84c);color:#000}
 .off{background:#1a1a1a;color:#f5d78e}
-.card{margin:15px;background:#121212;border:1px solid #3a3320;border-radius:16px;padding:18px}
-select{width:100%;padding:13px;margin-top:6px;background:#1e1e1e;color:white;border:1px solid #3a3320;border-radius:10px}
-.btn{width:100%;padding:16px;background:linear-gradient(#f5d78e,#c9a84c);border:none;border-radius:30px;font-weight:bold;font-size:16px;margin-top:18px;color:#000}
-.signal{margin-top:18px;padding:18px;border-radius:14px;text-align:center;display:none;background:#1a1a1a}
+.card{margin:15px;background:#121212;border:1px solid #3a3320;border-radius:16px;padding:16px}
+select{width:100%;padding:12px;margin:6px 0;background:#1e1e1e;color:white;border:1px solid #3a3320;border-radius:10px}
+.btn{width:100%;padding:15px;background:linear-gradient(#f5d78e,#c9a84c);border:none;border-radius:30px;font-weight:bold;font-size:16px;margin-top:15px;color:#000}
+.signal{margin-top:15px;padding:15px;border-radius:12px;text-align:center;display:none;background:#1a1a1a}
 </style>
 </head>
 <body>
 <div class="header">
 <div class="live">● LIVE AI</div>
-<h1>ZAINBOT<br>VIP SIGNAL ENGINE</h1>
+<h2 style="margin:0">ZAINBOT<br>VIP SIGNAL ENGINE</h2>
+<p style="font-size:10px;color:#777">VERIFIED ENGINE • SECURE AI ENGINE • 1,271 Users</p>
 <div class="logo">🤖</div>
-<div class="badges"><div class="badge">✓ AI Engine Connected</div><div class="badge">✓ Market Feed Synced</div><div class="badge">✓ Liquidity Scanner Active</div></div>
+<div class="badges"><div class="badge">● AI Engine Connected</div><div class="badge">● Market Feed Synced</div></div>
 </div>
+
 <div class="toggle"><div class="t on">QUOTEX</div><div class="t off">POCKET OPTION</div></div>
 <div class="toggle"><div class="t on">OTC MARKET</div><div class="t off">LIVE MARKET</div></div>
+
 <div class="card">
-<b>⚡ ZAIN AI Signal</b>
+<b>⚡ ZAIN AI Signal Generator</b><br>
+<small style="color:#666">Select pair & generate</small>
 <select id="broker"><option>Quotex</option><option>Pocket Option</option></select>
-<select id="asset"><option>NZD/CAD (OTC)</option><option>EUR/USD (OTC)</option><option>GBP/JPY (OTC)</option><option>BTC/USD (OTC)</option></select>
-<select id="tf"><option>15secs</option><option>30secs</option><option>1min</option></select>
-<button class="btn" onclick="generate()">⚡ GENERATE SIGNAL ✨</button>
-<div id="result" class="signal"></div>
+<select id="asset"><option>NZD/CAD (OTC)</option><option>EUR/USD (OTC)</option><option>GBP/JPY (OTC)</option><option>AUD/CAD (OTC)</option><option>BTC/USD (OTC)</option></select>
+<select id="tf"><option>15secs</option><option>30secs</option><option>1min</option><option>5min</option></select>
+<button class="btn" onclick="gen()">⚡ GENERATE SIGNAL ✨</button>
+<div id="res" class="signal"></div>
 </div>
+
 <script>
-function generate(){
- let asset=document.getElementById('asset').value;
- let tf=document.getElementById('tf').value;
- let isBuy=Math.random()>0.5;
- let conf=88+Math.floor(Math.random()*9);
- let color=isBuy?'#22c55e':'#ef4444';
- let txt=isBuy?'BUY':'SELL';
- let r=document.getElementById('result');
- r.style.display='block';
- r.style.border='2px solid '+color;
- r.innerHTML=`<div style="font-size:32px;color:${color};font-weight:bold">${txt} SIGNAL</div><div style="color:white;font-size:18px">${asset}</div><small style="color:#888">${tf} • ${conf}%</small>`;
+function gen(){
+ let a=document.getElementById('asset').value;
+ let buy=Math.random()>0.5;
+ let c=buy?'#22c55e':'#ef4444';
+ let t=buy?'BUY':'SELL';
+ let conf=88+Math.floor(Math.random()*10);
+ document.getElementById('res').style.display='block';
+ document.getElementById('res').style.border='2px solid '+c;
+ document.getElementById('res').innerHTML=`<div style="font-size:30px;color:${c};font-weight:bold">${t}</div><div style="color:#fff;margin:5px 0">${a}</div><small style="color:#888">Confidence ${conf}% • 15sec</small>`;
 }
 </script>
 </body>
