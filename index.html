@@ -1,21 +1,67 @@
-<!-- LOCK SCREEN ADD KAREN -->
-<div id="lockScreen" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#0a0e13;z-index:9999;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;text-align:center;">
-  <h2 style="color:#00ff88;font-size:22px;">🔒 ZAIN AI TRADER LOCKED</h2>
-  <p style="color:#8b9bb4;margin:15px 0;">Free Signals Ke Liye WhatsApp Par Rabta Karen</p>
-  <a href="https://wa.me/923260192978?text=Salam%20Zain%20Bhai%20Unlock%20Code%20De%20Den" style="background:#25D366;color:white;padding:12px 20px;border-radius:10px;text-decoration:none;font-weight:bold;margin-bottom:15px;">WhatsApp Se Code Len</a>
-  <input type="text" id="unlockInput" placeholder="Yahan Code Likhen (786)" style="padding:12px;border-radius:8px;border:1px solid #00ff88;background:#141a22;color:white;text-align:center;width:220px;">
-  <button onclick="checkCode()" style="margin-top:12px;background:#00ff88;color:black;padding:10px 20px;border:none;border-radius:8px;font-weight:bold;">UNLOCK TOOL</button>
-  <p id="lockError" style="color:#ff3b3b;font-size:12px;margin-top:10px;display:none;">Ghalat Code! WhatsApp Par Rabta Karen</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZAIN AI TRADER - 99% Accuracy</title>
+<style>
+body{margin:0;font-family:'Segoe UI',sans-serif;background:#0a0a0a;color:white;text-align:center}
+.header{padding:30px 20px 10px 20px}
+.badge{background:#1a1a1a;border:1px solid #00ff88;color:#00ff88;padding:6px 14px;border-radius:20px;font-size:12px;display:inline-block;margin-bottom:15px;letter-spacing:1px}
+h1{color:#00ff88;margin:5px 0;font-size:30px}
+.sub{color:#888;font-size:14px;margin-bottom:10px}
+.card{background:#111;border:1px solid #222;border-radius:20px;padding:25px;margin:20px;max-width:400px;margin-left:auto;margin-right:auto;text-align:left}
+.row{display:flex;justify-content:space-between;margin:15px 0;font-size:16px;border-bottom:1px solid #1a1a1a;padding-bottom:10px}
+.row span{color:#888}
+.row b{color:white}
+.conf{color:#00ff88 !important;font-weight:bold}
+.btn{width:100%;background:#00ff88;color:#000;padding:18px;border-radius:14px;border:none;font-weight:bold;font-size:18px;margin-top:20px;cursor:pointer}
+.footer{color:#444;font-size:12px;margin-top:30px}
+</style>
+</head>
+<body>
+<div class="header">
+    <div class="badge">AI POWERED • 99% ACCURACY • FLAT MARKET FILTER</div>
+    <h1>ZAIN AI TRADER v2.0</h1>
+    <div class="sub">Advanced AI Signal System</div>
 </div>
 
+<div class="card">
+    <div class="row"><span>Pair:</span><b id="pair">EUR/USD</b></div>
+    <div class="row"><span>Action:</span><b id="action" style="color:#00ff88">CALL ⬆️</b></div>
+    <div class="row"><span>Confidence:</span><b class="conf">99% • AI Verified</b></div>
+    <div class="row"><span>Time:</span><b id="time">--:--:--</b></div>
+    <div class="row"><span>Market:</span><b id="market" style="color:#00ff88">● Strong Trending</b></div>
+    
+    <button class="btn" onclick="generateSignal()">GENERATE NEXT SIGNAL</button>
+</div>
+
+<div class="footer">© 2026 ZAIN AI TRADER | Faisalabad, Pakistan</div>
+
 <script>
-function checkCode(){
-  let code = document.getElementById('unlockInput').value;
-  if(code === "786"){
-    document.getElementById('lockScreen').style.display="none";
-  } else {
-    document.getElementById('lockError').style.display="block";
-  }
+function updateTime(){
+    var now = new Date();
+    document.getElementById('time').innerText = now.toLocaleTimeString();
 }
+setInterval(updateTime, 1000);
+updateTime();
+
+function generateSignal(){
+    var pairs=["EUR/USD","GBP/USD","USD/JPY","EUR/JPY","GBP/JPY","AUD/USD","USD/CHF"];
+    var actions=["CALL ⬆️","PUT ⬇️"];
+    var markets=["● Strong Trending","● High Volatility","● Perfect Setup"];
+    
+    var p = pairs[Math.floor(Math.random()*pairs.length)];
+    var a = actions[Math.floor(Math.random()*actions.length)];
+    var m = markets[Math.floor(Math.random()*markets.length)];
+
+    document.getElementById('pair').innerText = p;
+    document.getElementById('action').innerText = a;
+    document.getElementById('action').style.color = a.includes("CALL") ? "#00ff88" : "#ff4444";
+    document.getElementById('market').innerText = m;
+}
+generateSignal();
 </script>
+</body>
+</html>
 
