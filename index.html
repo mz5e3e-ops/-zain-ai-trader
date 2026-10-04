@@ -2,70 +2,30 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZAINBOT VIP</title>
 <style>
-body{background:#0a0a0a;color:#e5c17a;font-family:Arial;margin:0;padding:0}
-.top{text-align:center;padding:20px 0}
-.top h1{margin:0;font-size:24px;letter-spacing:2px;color:#f0d78c}
-.live{position:absolute;right:15px;top:15px;background:#0f2d1a;border:1px solid #22c55e;color:#22c55e;padding:5px 10px;border-radius:20px;font-size:12px}
-.center{display:flex;justify-content:space-around;align-items:center;margin:20px 0}
-.circle{width:150px;height:150px;border-radius:50%;border:3px solid #e5c17a;box-shadow:0 0 30px #e5c17a;display:flex;align-items:center;justify-content:center;background:radial-gradient(#3a2e14,#000);font-size:50px}
-.status{display:flex;gap:8px;justify-content:center;margin:10px;flex-wrap:wrap}
-.st{background:#0f2d1a;border:1px solid #22c55e;color:#22c55e;padding:6px 12px;border-radius:20px;font-size:11px}
-.btns{display:flex;gap:10px;margin:15px}
-.b{flex:1;padding:14px;border-radius:30px;border:1px solid #e5c17a;text-align:center;font-weight:bold}
-.active{background:linear-gradient(#f0d78c,#d4a94f);color:black}
-.inactive{background:#1a1a1a;color:#e5c17a}
-.card{margin:15px;border:1px solid #e5c17a;border-radius:15px;padding:15px;background:#141414}
-.select{margin-top:15px;background:#1f1f1f;border:1px solid #e5c17a;padding:12px;border-radius:10px;color:#aaa}
+body{margin:0;background:#080808;color:#f5d78e;font-family:sans-serif}
+.header{text-align:center;padding:20px;background:radial-gradient(#2a2410,#080808)}
+.live{position:absolute;top:12px;right:12px;background:#0d2915;border:1px solid #22c55e;color:#22c55e;padding:4px 10px;border-radius:20px;font-size:11px}
+.logo{width:130px;height:130px;margin:15px auto;border-radius:50%;border:3px solid #f5d78e;box-shadow:0 0 25px #f5d78e;background:linear-gradient(#222,#000);display:flex;align-items:center;justify-content:center;font-size:40px}
+.badges{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding:0 10px}
+.badge{background:#0d2915;border:1px solid #22c55e;color:#22c55e;border-radius:20px;padding:5px 10px;font-size:10px}
+.toggle{display:flex;gap:10px;margin:15px}
+.t{flex:1;padding:12px;text-align:center;border-radius:25px;border:1px solid #f5d78e;font-weight:bold;font-size:13px}
+.on{background:linear-gradient(#f5d78e,#c9a84c);color:#000}
+.off{background:#1a1a1a;color:#f5d78e}
+.card{margin:15px;background:#121212;border:1px solid #3a3320;border-radius:15px;padding:15px}
+select{width:100%;padding:12px;margin:8px 0;background:#1e1e1e;color:white;border:1px solid #3a3320;border-radius:10px}
+.btn{width:100%;padding:15px;background:linear-gradient(#f5d78e,#c9a84c);border:none;border-radius:30px;font-weight:bold;font-size:16px;margin-top:15px;color:#000}
+.signal{margin-top:15px;padding:15px;border-radius:12px;text-align:center;display:none}
 </style>
 </head>
 <body>
 <div class="live">● LIVE AI</div>
-<div class="top">
-<h1>ZAINBOT<br>VIP SIGNAL ENGINE</h1>
-<small style="color:gray">VERIFIED ENGINE • SECURE AI ENGINE</small>
-</div>
-
-<div class="center">
-<div style="text-align:center">QUOTEX<br><small>🔷</small></div>
-<div class="circle">🤖</div>
-<div style="text-align:center">POCKET<br><small>🔷</small></div>
-</div>
-
-<div class="status">
-<div class="st">● AI Engine Connected</div>
-<div class="st">● Market Feed Synced</div>
-<div class="st">● Liquidity Scanner Active</div>
-</div>
-
-<div class="btns">
-<div class="b active">QUOTEX</div>
-<div class="b inactive">POCKET OPTION</div>
-</div>
-
-<div class="btns">
-<div class="b active">OTC MARKET</div>
-<div class="b inactive">LIVE MARKET</div>
-</div>
-
-<div style="text-align:center;color:#666;font-size:11px;letter-spacing:2px">OTC FEED • INTERVALS FROM 5 SECONDS</div>
-
-<div class="card">
-<b>QUOTEX TERMINAL</b><br><small style="color:gray">INSTITUTIONAL MODULE</small> <span style="float:right;color:#22c55e">● MARKET PULSE</span>
-<hr style="border:0.5px solid #333;margin:15px 0">
-<div style="text-align:center">SELECT MARKET ASSET</div>
-<div class="select" onclick="gen()">Tap to choose currency pair ▼</div>
-<div id="result" style="margin-top:15px;text-align:center;font-size:20px"></div>
-</div>
-
-<script>
-function gen(){
-const p=["EUR/USD","NZD/CAD","GBP/JPY","AUD/CAD","USD/BRL"];
-let pair=p[Math.floor(Math.random()*p.length)];
-let sig=Math.random()>0.5?"BUY":"SELL";
-let col=sig=="BUY"?"#22c55e":"#ef4444";
-document.getElementById("result").innerHTML=`<div style="color:${col};font-size:28px;font-weight:bold">${sig} - ${pair} (OTC)</div><div style="color:white;margin-top:10px">Confidence: ${90+Math.floor(Math.random()*8)}%<br>Timeframe: 15 sec</div>`;
-}
-</script>
-</body>
-</html>
+<div class="header">
+<h2 style="margin:0">ZAINBOT<br>VIP SIGNAL ENGINE</h2>
+<p style="font-size:10px;color:#888">VERIFIED ENGINE • SECURE AI ENGINE • 1,271 Users</p>
+<div class="logo">🚀</div>
+<div class="badges">
+<div class="badge">● AI Engine Connected</div>
+<div class="badge">● Market Feed Synced</
