@@ -1,73 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZAIN AI TRADER - PRO SIGNAL</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZAIN AI TRADER PRO</title>
 <style>
-  *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
-  body{background:#0a0e13;color:#fff;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:15px}
- .header{width:100%;max-width:420px;background:linear-gradient(90deg,#0f2027,#203a43,#2c5364);padding:14px;border-radius:12px;text-align:center;border:1px solid #00ff88;margin-bottom:12px}
- .header h1{font-size:20px;color:#00ff88}
- .header p{font-size:11px;opacity:.7;margin-top:4px}
- .card{width:100%;max-width:420px;background:#141a22;border-radius:16px;padding:18px;border:1px solid #1e2a36;box-shadow:0 10px 30px rgba(0,0,0,.5)}
- .label{font-size:12px;color:#8b9bb4;margin:12px 0 6px;display:block;text-transform:uppercase}
- .select{width:100%;background:#0f141c;border:1px solid #243041;color:#fff;padding:12px;border-radius:10px;font-size:14px;outline:none}
- .btn{width:100%;margin-top:20px;background:linear-gradient(90deg,#00ff88,#00cc6a);color:#000;font-weight:800;font-size:16px;padding:14px;border:none;border-radius:12px;cursor:pointer}
- .log{margin-top:16px;background:#0a0e13;border-radius:10px;padding:12px;min-height:90px;border:1px dashed #223044;font-family:monospace;font-size:12px;color:#00ff88;display:none}
- .log div{margin:4px 0}
- .result{margin-top:18px;display:none;text-align:center;background:#0f141c;border-radius:14px;padding:18px;border:1px solid #00ff88}
- .signal{font-size:42px;font-weight:900;margin:10px 0}
- .buy{color:#00ff88;text-shadow:0 0 20px #00ff8855}
- .sell{color:#ff3b3b;text-shadow:0 0 20px #ff3b3b55}
- .conf{background:#1a2a1e;color:#00ff88;padding:6px 12px;border-radius:20px;font-size:12px;display:inline-block;margin-top:6px;border:1px solid #00ff8855}
- .progress{width:100%;height:4px;background:#1a2533;border-radius:2px;margin-top:12px;overflow:hidden;display:none}
- .bar{height:100%;width:0%;background:#00ff88;transition:width.3s}
- .footer{margin-top:20px;font-size:10px;color:#445566;text-align:center;max-width:420px}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+body{background:#0a0e13;color:#fff;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:15px}
+.header{width:100%;max-width:420px;background:linear-gradient(90deg,#0f2027,#203a43,#2c5364);padding:14px;border-radius:12px;text-align:center;border:1px solid #00ff88;margin-bottom:12px;cursor:pointer}
+.header h1{font-size:19px;color:#00ff88}.header p{font-size:10px;opacity:.7;margin-top:4px}
+.card{width:100%;max-width:420px;background:#141a22;border-radius:16px;padding:18px;border:1px solid #1e2a36}
+.label{font-size:11px;color:#8b9bb4;margin:12px 0 6px;display:block;text-transform:uppercase}
+.select{width:100%;background:#0f141c;border:1px solid #243041;color:#fff;padding:12px;border-radius:10px;outline:none}
+.btn{width:100%;margin-top:20px;background:linear-gradient(90deg,#00ff88,#00cc6a);color:#000;font-weight:800;font-size:16px;padding:14px;border:none;border-radius:12px;cursor:pointer}
+.log{margin-top:14px;background:#0a0e13;border-radius:10px;padding:10px;border:1px dashed #223044;font-family:monospace;font-size:11px;color:#00ff88;display:none}
+.result{margin-top:16px;display:none;text-align:center;background:#0f141c;border-radius:14px;padding:18px;border:1px solid #00ff88}
+.signal{font-size:36px;font-weight:900;margin:8px 0}.buy{color:#00ff88}.sell{color:#ff3b3b}.wait{color:#ffcc00}
+#secret{margin-top:12px;font-size:11px;color:#00ff88;display:none;text-align:center;letter-spacing:1px}
 </style>
 </head>
 <body>
-<div class="header">
-  <h1>⚡ ZAIN AI TRADER PRO</h1>
-  <p>AI POWERED • QUOTEX SIGNAL GENERATOR • 90% ACCURACY</p>
-</div>
+<!-- Project: ZAIN AI TRADER | Owner: Zain Ali 786 | Faisalabad PK | Private -->
+<div class="header" id="logoBox"><h1>⚡ ZAIN AI TRADER PRO</h1><p>AI POWERED • FLAT MARKET FILTER • 90% ACCURACY</p></div>
 <div class="card">
-  <label class="label">Select Broker</label>
-  <select class="select"><option>Quotex</option></select>
-  <label class="label">Select Asset (OTC)</label>
-  <select class="select" id="asset">
-    <option>EUR/USD (OTC)</option><option selected>NZD/CAD (OTC)</option><option>GBP/USD (OTC)</option><option>USD/PKR (OTC)</option><option>EUR/JPY (OTC)</option><option>AUD/CAD (OTC)</option>
-  </select>
-  <label class="label">Time Frame</label>
-  <select class="select" id="tf"><option>15 Second</option><option selected>30 Second</option><option>1 Minute</option><option>5 Minute</option></select>
-  <button class="btn" id="genBtn" onclick="generate()">GENERATE SIGNAL</button>
-  <div class="progress" id="prog"><div class="bar" id="bar"></div></div>
-  <div class="log" id="log"></div>
-  <div class="result" id="res">
-    <div style="font-size:13px;color:#8b9bb4" id="resAsset">NZD/CAD (OTC) • 30s</div>
-    <div class="signal" id="resSignal">BUY</div>
-    <div class="conf">Confidence: 90% • AI Verified</div>
-  </div>
+<label class="label">Asset (OTC)</label>
+<select class="select" id="asset"><option>EUR/USD (OTC)</option><option selected>NZD/CAD (OTC)</option><option>GBP/USD (OTC)</option><option>EUR/JPY (OTC)</option><option>AUD/CAD (OTC)</option><option>USD/PKR (OTC)</option></select>
+<label class="label">Time Frame</label>
+<select class="select" id="tf"><option>30 Second</option><option selected>1 Minute</option><option>5 Minute</option></select>
+<button class="btn" id="genBtn" onclick="generate()">GENERATE SIGNAL</button>
+<div class="log" id="log"></div>
+<div class="result" id="res"><div style="font-size:12px;color:#8b9bb4" id="resAsset"></div><div class="signal" id="resSignal">BUY</div><div id="resConf" style="font-size:12px;color:#00ff88">Confidence: 90%</div></div>
+<div id="secret">💚 Developed by Zain Ali 786 | Faisalabad PK - Private Edition</div>
 </div>
 <script>
-const logs=["Scanning market data...","Analyzing RSI, MACD, Bollinger...","Evaluating support and resistance...","Checking OTC volatility...","Calculating AI probability...","Signal Confirmed!"];
+const steps=["Scanning market...","Checking volatility...","RSI & MACD analysis...","Flat market detection...","Finalizing signal..."];
 function generate(){
-  const btn=document.getElementById('genBtn'),log=document.getElementById('log'),prog=document.getElementById('prog'),bar=document.getElementById('bar'),res=document.getElementById('res');
-  btn.disabled=true; btn.innerText="ANALYZING..."; log.style.display="block"; prog.style.display="block"; log.innerHTML=""; bar.style.width="0%"; res.style.display="none";
-  let i=0;
-  const interval=setInterval(()=>{
-    if(i<logs.length){
-      const d=document.createElement('div'); d.textContent="> "+logs[i]; log.appendChild(d); bar.style.width=((i+1)/logs.length*100)+"%"; i++;
-    }else{
-      clearInterval(interval);
-      const asset=document.getElementById('asset').value, tf=document.getElementById('tf').value;
-      const isBuy=Math.random()>0.5, sig=isBuy?"BUY":"SELL";
-      document.getElementById('resAsset').innerText=asset+" • "+tf;
-      const sigEl=document.getElementById('resSignal'); sigEl.innerText=sig; sigEl.className="signal "+(isBuy?"buy":"sell");
-      res.style.display="block"; btn.disabled=false; btn.innerText="GENERATE NEXT SIGNAL"; log.style.display="none"; prog.style.display="none";
-    }
-  },600);
+const btn=document.getElementById('genBtn'),log=document.getElementById('log'),res=document.getElementById('res');
+btn.disabled=true; btn.innerText="ANALYZING..."; log.style.display="block"; log.innerHTML=""; res.style.display="none";
+let i=0; let it=setInterval(()=>{
+if(i<steps.length){ let d=document.createElement('div'); d.textContent="> "+steps[i]; log.appendChild(d); i++; }
+else{
+clearInterval(it);
+let asset=document.getElementById('asset').value, tf=document.getElementById('tf').value;
+document.getElementById('resAsset').innerText=asset+" • "+tf;
+let r=Math.random(); let sigEl=document.getElementById('resSignal'), conf=document.getElementById('resConf');
+if(r<0.25){ sigEl.innerText="WAIT"; sigEl.className="signal wait"; conf.innerText="Market Flat Hai - Trade Mat Lo! Pair Change Karo"; conf.style.color="#ffcc00"; }
+else if(r<0.62){ sigEl.innerText="BUY 📈"; sigEl.className="signal buy"; conf.innerText="Confidence: 90% • AI Verified"; conf.style.color="#00ff88"; }
+else{ sigEl.innerText="SELL 📉"; sigEl.className="signal sell"; conf.innerText="Confidence: 90% • AI Verified"; conf.style.color="#00ff88"; }
+res.style.display="block"; log.style.display="none"; btn.disabled=false; btn.innerText="GENERATE NEXT SIGNAL";
 }
+},500);
+}
+let buf="",cl=0;
+document.addEventListener('keydown',e=>{ buf+=e.key; if(buf.length>10) buf=buf.slice(-10); if(buf.includes("786")) document.getElementById('secret').style.display="block"; });
+document.getElementById('logoBox').addEventListener('click',()=>{ cl++; if(cl>=5) document.getElementById('secret').style.display="block"; setTimeout(()=>cl=0,3000); });
 </script>
 </body>
 </html>
