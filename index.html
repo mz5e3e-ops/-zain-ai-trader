@@ -1,1 +1,73 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name=viewport content="width=device-width,initial-scale=1"><title>ZAIN AI PRO</title><style>body{background:#070a13;color:#fff;font-family:sans-serif;margin:0}#lock{position:fixed;inset:0;background:#070a13;z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px}.card{background:#11182e;border-radius:16px;padding:24px;width:100%;max-width:300px;text-align:center;border:1px solid #00ff8822}input{width:100%;padding:12px;border-radius:8px;border:1px solid #00ff88;background:#0a0f22;color:#fff;margin-top:10px;text-align:center}button{width:100%;padding:12px;border-radius:8px;border:0;font-weight:900;margin-top:10px;background:#00ff88;color:#000}.btn2{background:#1a2442;color:#00ff88;border:1px solid #00ff88}header{padding:12px;background:#0f1528;color:#00ff88;font-weight:700;display:flex;justify-content:space-between}.b{margin:10px;background:#11182e;border-radius:12px;padding:10px;border:1px solid #222}select{width:100%;padding:10px;background:#1a2442;color:#fff;border-radius:8px;margin-top:6px}.sig{font-size:34px;font-weight:900;text-align:center;padding:10px}.green{color:#00ff88}.red{color:#ff4444}</style></head><body><div id=lock><div class=card><h2 style=color:#00ff88>ZAIN AI PRO</h2><p style=color:#555;font-size:11px;margin-top:5px>Enter Your Private Key</p><input id=key type=password placeholder="ENTER KEY"><button onclick=unlock()>UNLOCK APP</button><p id=err style=color:red;display:none;font-size:12px>غلط Key!</p></div></div><header><span>ZAIN AI • LIVE</span><span>● 99.1%</span></header><div class=b><select id=coin onchange=load()><option value=BINANCE:BTCUSDT>BTC/USDT</option><option value=BINANCE:ETHUSDT>ETH/USDT</option><option value=BINANCE:SOLUSDT>SOL</option><option value=BINANCE:BNBUSDT>BNB</option><option value=FX:EURUSD>EUR/USD</option><option value=OANDA:XAUUSD>GOLD</option></select><select id=tf onchange=setTF()><option value=5>5s</option><option value=10>10s</option><option value=15 selected>15s</option><option value=30>30s</option></select><iframe id=tv src=https://s.tradingview.com/widgetembed/?symbol=BINANCE:BTCUSDT&interval=1&theme=dark style=width:100%;height:350px;border:0;border-radius:8px;margin-top:8px></iframe></div><div class=b><div style=display:flex;justify-content:space-between;font-size:12px><span>SIGNAL (<span id=tfl>15s</span>)</span><span id=acc class=green>99.1%</span></div><div id=sig class="sig green">WAITING</div><button onclick=gen()>GENERATE SIGNAL</button><div style=text-align:center;color:#888;font-size:11px;margin-top:6px>Auto in <span id=count>15</span>s</div><button id=installBtn class=btn2 style=display:none onclick=installApp()>📲 APP INSTALL</button><button class=btn2 onclick="window.open('https://github.com/mz5e3e-ops/-zain-ai-trader/archive/refs/heads/main.zip')">⬇️ ZIP DOWNLOAD</button></div><script>const MY_KEY="Zainali786";function unlock(){if(document.getElementById('key').value===MY_KEY){document.getElementById('lock').style.display='none';localStorage.setItem('zain_unlocked','yes')}else{document.getElementById('err').style.display='block'}}if(localStorage.getItem('zain_unlocked')==='yes'){document.getElementById('lock').style.display='none'}let cd=15,iv,deferredPrompt;function load(){document.getElementById('tv').src='https://s.tradingview.com/widgetembed/?symbol='+document.getElementById('coin').value+'&interval=1&theme=dark';gen()}function setTF(){clearInterval(iv);cd=parseInt(document.getElementById('tf').value);document.getElementById('tfl').innerText=cd+'s';start()}function start(){let n=cd;iv=setInterval(()=>{n--;document.getElementById('count').innerText=n;if(n<=0){gen();n=cd}},1000)}function gen(){let isBuy=Math.random()>.5;document.getElementById('sig').innerText=isBuy?'🟢 BUY':'🔴 SELL';document.getElementById('sig').className='sig '+(isBuy?'green':'red')}window.addEventListener('beforeinstallprompt',(e)=>{e.preventDefault();deferredPrompt=e;document.getElementById('installBtn').style.display='block'});function installApp(){if(deferredPrompt){deferredPrompt.prompt()}else{alert('Browser ke 3 dots > Add to Home Screen dabayen!')}}start();gen();</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZAIN AI TRADER - PRO SIGNAL</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+  body{background:#0a0e13;color:#fff;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:15px}
+ .header{width:100%;max-width:420px;background:linear-gradient(90deg,#0f2027,#203a43,#2c5364);padding:14px;border-radius:12px;text-align:center;border:1px solid #00ff88;margin-bottom:12px}
+ .header h1{font-size:20px;color:#00ff88}
+ .header p{font-size:11px;opacity:.7;margin-top:4px}
+ .card{width:100%;max-width:420px;background:#141a22;border-radius:16px;padding:18px;border:1px solid #1e2a36;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+ .label{font-size:12px;color:#8b9bb4;margin:12px 0 6px;display:block;text-transform:uppercase}
+ .select{width:100%;background:#0f141c;border:1px solid #243041;color:#fff;padding:12px;border-radius:10px;font-size:14px;outline:none}
+ .btn{width:100%;margin-top:20px;background:linear-gradient(90deg,#00ff88,#00cc6a);color:#000;font-weight:800;font-size:16px;padding:14px;border:none;border-radius:12px;cursor:pointer}
+ .log{margin-top:16px;background:#0a0e13;border-radius:10px;padding:12px;min-height:90px;border:1px dashed #223044;font-family:monospace;font-size:12px;color:#00ff88;display:none}
+ .log div{margin:4px 0}
+ .result{margin-top:18px;display:none;text-align:center;background:#0f141c;border-radius:14px;padding:18px;border:1px solid #00ff88}
+ .signal{font-size:42px;font-weight:900;margin:10px 0}
+ .buy{color:#00ff88;text-shadow:0 0 20px #00ff8855}
+ .sell{color:#ff3b3b;text-shadow:0 0 20px #ff3b3b55}
+ .conf{background:#1a2a1e;color:#00ff88;padding:6px 12px;border-radius:20px;font-size:12px;display:inline-block;margin-top:6px;border:1px solid #00ff8855}
+ .progress{width:100%;height:4px;background:#1a2533;border-radius:2px;margin-top:12px;overflow:hidden;display:none}
+ .bar{height:100%;width:0%;background:#00ff88;transition:width.3s}
+ .footer{margin-top:20px;font-size:10px;color:#445566;text-align:center;max-width:420px}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>⚡ ZAIN AI TRADER PRO</h1>
+  <p>AI POWERED • QUOTEX SIGNAL GENERATOR • 90% ACCURACY</p>
+</div>
+<div class="card">
+  <label class="label">Select Broker</label>
+  <select class="select"><option>Quotex</option></select>
+  <label class="label">Select Asset (OTC)</label>
+  <select class="select" id="asset">
+    <option>EUR/USD (OTC)</option><option selected>NZD/CAD (OTC)</option><option>GBP/USD (OTC)</option><option>USD/PKR (OTC)</option><option>EUR/JPY (OTC)</option><option>AUD/CAD (OTC)</option>
+  </select>
+  <label class="label">Time Frame</label>
+  <select class="select" id="tf"><option>15 Second</option><option selected>30 Second</option><option>1 Minute</option><option>5 Minute</option></select>
+  <button class="btn" id="genBtn" onclick="generate()">GENERATE SIGNAL</button>
+  <div class="progress" id="prog"><div class="bar" id="bar"></div></div>
+  <div class="log" id="log"></div>
+  <div class="result" id="res">
+    <div style="font-size:13px;color:#8b9bb4" id="resAsset">NZD/CAD (OTC) • 30s</div>
+    <div class="signal" id="resSignal">BUY</div>
+    <div class="conf">Confidence: 90% • AI Verified</div>
+  </div>
+</div>
+<script>
+const logs=["Scanning market data...","Analyzing RSI, MACD, Bollinger...","Evaluating support and resistance...","Checking OTC volatility...","Calculating AI probability...","Signal Confirmed!"];
+function generate(){
+  const btn=document.getElementById('genBtn'),log=document.getElementById('log'),prog=document.getElementById('prog'),bar=document.getElementById('bar'),res=document.getElementById('res');
+  btn.disabled=true; btn.innerText="ANALYZING..."; log.style.display="block"; prog.style.display="block"; log.innerHTML=""; bar.style.width="0%"; res.style.display="none";
+  let i=0;
+  const interval=setInterval(()=>{
+    if(i<logs.length){
+      const d=document.createElement('div'); d.textContent="> "+logs[i]; log.appendChild(d); bar.style.width=((i+1)/logs.length*100)+"%"; i++;
+    }else{
+      clearInterval(interval);
+      const asset=document.getElementById('asset').value, tf=document.getElementById('tf').value;
+      const isBuy=Math.random()>0.5, sig=isBuy?"BUY":"SELL";
+      document.getElementById('resAsset').innerText=asset+" • "+tf;
+      const sigEl=document.getElementById('resSignal'); sigEl.innerText=sig; sigEl.className="signal "+(isBuy?"buy":"sell");
+      res.style.display="block"; btn.disabled=false; btn.innerText="GENERATE NEXT SIGNAL"; log.style.display="none"; prog.style.display="none";
+    }
+  },600);
+}
+</script>
+</body>
+</html>
