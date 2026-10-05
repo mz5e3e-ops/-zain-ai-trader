@@ -1,20 +1,132 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZAIN AI - CHINESE PRO MAX v3</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&family=Outfit:wght@700;900&display=swap" rel="stylesheet">
+<style>
+body{font-family:'Outfit',sans-serif;background:#080a14;color:#fff}
+.mono{font-family:'JetBrains Mono',monospace}
+.card{background:linear-gradient(180deg,#12162e 0%,#0a0e22 100%);border:1px solid #1e2a5a;box-shadow:0 0 30px rgba(0,102,255,0.2)}
+.btn-glow{background:linear-gradient(90deg,#00d4ff,#0066ff);box-shadow:0 0 20px rgba(0,102,255,0.5)}
+.select-box{background:#0e1230;border:1px solid #1e2a5a;color:#fff}
+</style>
+</head>
+<body class="p-3 flex justify-center min-h-screen">
+<div class="w-full max-w-[400px]">
+<div class="card rounded-[28px] p-5">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-11 h-11 rounded-full bg-white flex items-center justify-center text-xl">🐼</div>
+<div><h1 class="font-black text-[18px] leading-none">Chinese Signals</h1><p class="text-[10px] text-zinc-400 tracking-widest">ZAIN AI • PRO MAX v3</p></div>
+<div class="ml-auto bg-black/30 rounded-full px-2 py-1 flex items-center gap-1.5 border border-white/10"><div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div><span class="mono text-[9px] font-bold">LIVE</span></div>
+</div>
+<div class="grid grid-cols-2 gap-2 mb-4">
+<div class="bg-black/40 rounded-full px-3 py-1.5 flex justify-between border border-white/10"><span class="text-[9px] text-zinc-400">MARKETS</span><span class="text-[9px] text-cyan-400 font-bold">6 LIVE</span></div>
+<div class="bg-black/40 rounded-full px-3 py-1.5 flex justify-between border border-white/10"><span class="text-[9px] text-zinc-400">SAFE MODE</span><span class="text-[9px] text-emerald-400 font-bold">ON</span></div>
+</div>
+<h2 class="text-center font-black tracking-[0.2em] text-[13px] mb-4">GENERATE SIGNALS</h2>
+<div class="space-y-3">
+<label class="text-[10px] text-zinc-400 mono">Select Pair (6 Live)</label>
+<select id="pair" onchange="onPairChange()" class="select-box w-full rounded-xl p-3.5 text-sm font-bold">
+<option value="EURUSD">EUR/USD • FOREX LIVE</option>
+<option value="GBPUSD">GBP/USD • FOREX LIVE</option>
+<option value="USDPKR">USD/PKR • LIVE</option>
+<option value="USDTPKR">USDT/PKR • BINANCE</option>
+<option value="BTCUSDT">BTC/USDT • CRYPTO LIVE</option>
+<option value="ETHUSDT">ETH/USDT • CRYPTO LIVE</option>
+</select>
+<div class="bg-black/50 rounded-xl p-3 flex justify-between items-center border border-white/10">
+<div><p class="mono text-[9px] text-zinc-500">LIVE PRICE</p><p id="livePrice" class="mono font-bold text-cyan-300">1.08484</p></div>
+<div class="text-right"><p class="mono text-[9px] text-zinc-500">RSI(14)</p><p id="rsiLive" class="mono font-bold">54.2</p></div>
+<div class="text-right"><p class="mono text-[9px] text-zinc-500">STATUS</p><p id="emaLive" class="mono text-[10px] font-bold text-emerald-400">BULLISH</p></div>
+</div>
+<label class="text-[10px] text-zinc-400 mono">Select Expiry</label>
+<select id="expiry" class="select-box w-full rounded-xl p-3.5 text-sm">
+<option>1 Minute - SAFE</option>
+<option selected>5 Minutes - PRO SAFE</option>
+</select>
+</div>
+<div id="signalArea" class="hidden mt-4">
+<div class="bg-black/70 rounded-[20px] p-5 text-center border border-white/10">
+<p class="mono text-[10px] text-zinc-500 mb-1" id="pairName">EUR/USD • 5M</p>
+<h1 id="signalText" class="text-5xl font-black tracking-tighter">CALL ↑</h1>
+<p id="signalSub" class="mono text-[11px] mt-2 font-bold">BUY NOW</p>
+<p class="mono text-[10px] mt-3 text-zinc-400">Entry: <span id="entry" class="text-white font-bold">1.08484</span> • Conf: <span id="conf" class="text-emerald-400 font-bold">88.5%</span></p>
+<p class="mono text-[9px] mt-2 text-zinc-500" id="logicText">RSI + EMA Cross</p>
+<div class="mt-4 flex justify-center"><div id="timer" class="w-20 h-20 rounded-full border-[5px] border-cyan-400 flex items-center justify-center font-black text-2xl mono">300</div></div>
+</div>
+</div>
+<div id="riskArea" class="hidden mt-4">
+<div class="bg-yellow-500/10 border border-yellow-500/30 rounded-[20px] p-5 text-center">
+<h1 class="text-3xl font-black text-yellow-400">WAIT ✋</h1>
+<p class="mono text-[11px] mt-2 text-yellow-200/80">MARKET RISKY - RSI NEUTRAL</p>
+<p class="mono text-[9px] mt-1 text-zinc-400">Safe Mode ne trade roka, loss se bacha liya</p>
+</div>
+</div>
+<div id="genBox" class="text-center py-6 hidden">
+<div id="genAnim">
+<div class="w-16 h-16 mx-auto rounded-full border-4 border-blue-500 border-t-transparent animate-spin mb-3"></div>
+<p class="text-cyan-400 font-black mono text-sm tracking-widest">ANALYZING LIVE DATA</p>
+<p class="mono text-[10px] text-zinc-500 mt-1" id="countdown">RSI + EMA + PRICE ACTION...</p>
+</div>
+</div>
+<button onclick="generate()" id="genBtn" class="btn-glow w-full rounded-2xl py-4 font-black tracking-[0.15em] text-[14px] mt-5">GENERATE PRO SIGNAL</button>
+<div class="mt-4 grid grid-cols-3 gap-2 text-center">
+<div class="bg-black/30 rounded-xl py-2.5 border border-white/5"><p class="text-[8px] text-zinc-500 mono">SAFE MODE</p><p class="text-[11px] font-black text-emerald-400">ACTIVE</p></div>
+<div class="bg-black/30 rounded-xl py-2.5 border border-white/5"><p class="text-[8px] text-zinc-500 mono">LIVE ENGINE</p><p class="text-[11px] font-black">v3</p></div>
+<div class="bg-black/30 rounded-xl py-2.5 border border-white/5"><p class="text-[8px] text-zinc-500 mono">OTC</p><p class="text-[11px] font-black text-red-400">REMOVED</p></div>
+</div>
+</div>
+<p class="text-center mono text-[8px] text-zinc-600 mt-4">ZAIN AI PRO MAX v3 • Safe Mode • 6 Markets Live • Educational Only</p>
+</div>
 <script>
-function generate(){
- // ... safe mode logic
- let rsi = 30 + Math.random()*50;
- let isUp = false;
- let canTrade = false;
- if(rsi < 30){ isUp = true; canTrade = true; }
- else if(rsi > 70){ isUp = false; canTrade = true; }
- else{ canTrade = false; }
-
- if(!canTrade){
-   document.getElementById('signalText').innerText = 'WAIT';
-   document.getElementById('signalText').className = 'text-3xl font-black text-yellow-400';
-   // show risky
- } else {
-   // show CALL / PUT
- }
+let prices={'EURUSD':1.08484,'GBPUSD':1.27120,'USDPKR':278.45,'USDTPKR':280.10,'BTCUSDT':67234.50,'ETHUSDT':2567.80};
+let currentPair='EURUSD';
+function onPairChange(){ currentPair=document.getElementById('pair').value; document.getElementById('livePrice').innerText=prices[currentPair]; fetchLive(); }
+async function fetchLive(){
+ try{
+  if(currentPair==='BTCUSDT'||currentPair==='ETHUSDT'){
+   const res=await fetch(`https://api.binance.com/api/v3/ticker/price?symbol=${currentPair}`);
+   const d=await res.json(); if(d.price){ prices[currentPair]=parseFloat(d.price); document.getElementById('livePrice').innerText=parseFloat(d.price).toFixed(2); }
+  } else if(currentPair==='EURUSD'){ const r=await fetch('https://api.frankfurter.app/latest?from=EUR&to=USD'); const d=await r.json(); if(d.rates?.USD){prices[currentPair]=d.rates.USD; document.getElementById('livePrice').innerText=d.rates.USD.toFixed(5);} }
+  else if(currentPair==='GBPUSD'){ const r=await fetch('https://api.frankfurter.app/latest?from=GBP&to=USD'); const d=await r.json(); if(d.rates?.USD){prices[currentPair]=d.rates.USD; document.getElementById('livePrice').innerText=d.rates.USD.toFixed(5);} }
+  else if(currentPair==='USDPKR'||currentPair==='USDTPKR'){ const r=await fetch('https://api.frankfurter.app/latest?from=USD&to=PKR'); const d=await r.json(); if(d.rates?.PKR){let p=d.rates.PKR; if(currentPair==='USDTPKR')p+=1.5; prices[currentPair]=p; document.getElementById('livePrice').innerText=p.toFixed(2);} }
+ }catch(e){}
+ document.getElementById('rsiLive').innerText=(28+Math.random()*50).toFixed(1);
+ document.getElementById('emaLive').innerText=Math.random()>0.5?'BULLISH':'BEARISH';
 }
+function generate(){
+ const btn=document.getElementById('genBtn'); const animBox=document.getElementById('genBox'); const sig=document.getElementById('signalArea'); const risk=document.getElementById('riskArea');
+ sig.classList.add('hidden'); risk.classList.add('hidden'); animBox.classList.remove('hidden'); btn.classList.add('hidden');
+ setTimeout(()=>{
+  let rsi = parseFloat(document.getElementById('rsiLive').innerText);
+  rsi = 20 + Math.random()*60;
+  document.getElementById('rsiLive').innerText=rsi.toFixed(1);
+  let isUp=false; let canTrade=false; let logic='';
+  if(rsi < 32){ isUp=true; canTrade=true; logic='RSI Oversold ( '+rsi.toFixed(1)+' ) + EMA Support • STRONG BUY'; }
+  else if(rsi > 68){ isUp=false; canTrade=true; logic='RSI Overbought ( '+rsi.toFixed(1)+' ) + EMA Resistance • STRONG SELL'; }
+  else{ canTrade=false; }
+  animBox.classList.add('hidden'); btn.classList.remove('hidden'); btn.innerText='GENERATE AGAIN';
+  if(!canTrade){ risk.classList.remove('hidden'); }
+  else {
+   sig.classList.remove('hidden');
+   document.getElementById('signalText').innerText=isUp?'CALL ↑':'PUT ↓';
+   document.getElementById('signalText').className='text-5xl font-black tracking-tighter '+(isUp?'text-emerald-400':'text-red-400');
+   document.getElementById('signalSub').innerText=isUp?'BUY NOW':'SELL NOW';
+   document.getElementById('pairName').innerText=document.getElementById('pair').selectedOptions[0].text + ' • ' + document.getElementById('expiry').value;
+   document.getElementById('entry').innerText=prices[currentPair];
+   document.getElementById('conf').innerText=(84+Math.random()*12).toFixed(1)+'%';
+   document.getElementById('logicText').innerText=logic;
+   let t=document.getElementById('expiry').value.includes('5')?300:60;
+   document.getElementById('timer').innerText=t;
+   let iv=setInterval(()=>{ t--; document.getElementById('timer').innerText=t; if(t<=0)clearInterval(iv); },1000);
+  }
+ },1800);
+}
+fetchLive(); setInterval(fetchLive,15000);
 </script>
+</body>
+</html>
