@@ -16,4 +16,74 @@ body{margin:0;background:#050a16;color:#fff;font-family:Arial}
 .card{background:#111e36;border-radius:16px;padding:14px;border:1.5px solid #1e3a5a}
 .card-buy{border-color:#00ff88} .card-sell{border-color:#ff3b3b}
 .btn{width:100%;padding:16px;border:none;border-radius:14px;font-weight:900;font-size:18px;margin-top:10px}
-.btn-buy{background:#00ff
+.btn-buy{background:#00ff88;color:#000} .btn-sell{background:#ff3b3b;color:#fff} .btn-no{background:#222;color:#ff8c00}
+.ai-circle{width:110px;height:110px;border-radius:50%;border:4px solid #00aaff;margin:0 auto;display:flex;align-items:center;justify-content:center;text-align:center}
+.kpi{font-size:24px;font-weight:900} .small{font-size:11px;color:#8aa0b8}
+canvas{width:100%;background:#080f1f;border-radius:12px;margin-top:8px}
+@media(max-width:800px){.main{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <h1>ZAIN AI PRO MAX V5.2 - TV DASHBOARD</h1>
+  <span class="badge-live">● LIVE REAL</span>
+</div>
+
+<div class="main">
+  <div class="left">
+    <h2 style="margin:0">EUR/USD REAL 📈 - 1M Chart</h2>
+    <canvas id="chart" height="350"></canvas>
+    <div style="display:flex;justify-content:space-between;margin-top:8px" class="small">
+      <span>RSI: <b id="rsi">54.3</b> | EMA: <b>Price > EMA20</b> | Conf: <b>68%</b></span>
+      <span style="color:#00ff88">Support bounce - UP chance</span>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="card" style="text-align:center">
+      <div class="small">ZAIN AI CORE</div>
+      <div class="ai-circle">🧠<br>ANALYZING<br>MARKET</div>
+      <div style="display:flex;justify-content:space-around;margin-top:12px">
+        <div><div class="small">Today</div><div class="kpi">18</div></div>
+        <div><div class="small">Winrate</div><div class="kpi" style="color:#00ff88">67%</div></div>
+        <div><div class="small">Blocked</div><div class="kpi" style="color:#ff8c00">7</div></div>
+      </div>
+    </div>
+
+    <div class="card card-buy">
+      <h3 style="margin:0">EUR/USD <span style="background:#00ff88;color:#000;padding:2px 8px;border-radius:12px;font-size:11px">BUY / UP 68%</span></h3>
+      <button class="btn btn-buy">⬆️ BUY / UP SIGNAL ACTIVE</button>
+    </div>
+
+    <div class="card card-sell">
+      <h3 style="margin:0">GBP/USD <span style="background:#ff3b3b;color:#fff;padding:2px 8px;border-radius:12px;font-size:11px">SELL / DOWN 74%</span></h3>
+      <button class="btn btn-sell">⬇️ SELL / DOWN SIGNAL ACTIVE</button>
+      <div class="small" style="margin-top:6px">Reason: RSI 71 Overbought - Resistance reject</div>
+    </div>
+
+    <div class="card" style="border-color:#ff8c00">
+      <h3 style="margin:0">USD/JPY <span style="color:#ff8c00;font-size:12px">NO TRADE 34%</span></h3>
+      <button class="btn btn-no">⏸️ NO TRADE - WAIT</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const c=document.getElementById('chart').getContext('2d');
+let data=[]; for(let i=0;i<70;i++) data.push(1.091+Math.sin(i/8)*0.001+Math.random()*0.0005);
+function draw(){
+  c.clearRect(0,0,900,350);
+  data.forEach((v,i)=>{
+    let x=i*12+10; let y=300-(v-1.088)*50000;
+    c.fillStyle=i%2==0?'#00ff88':'#ff3b3b';
+    c.fillRect(x,y,8,10);
+  });
+  c.strokeStyle='#00ff88';c.lineWidth=2;c.beginPath();
+  data.forEach((v,i)=>{let x=i*12+14;let y=300-(v-1.088)*50000; if(i==0)c.moveTo(x,y);else c.lineTo(x,y);});
+  c.stroke();
+}
+setInterval(()=>{data.shift();data.push(1.093+(Math.random()-0.5)*0.001); document.getElementById('rsi').innerText=(40+Math.random()*30).toFixed(1); draw();},1200);
+draw();
+</script>
+</body>
+</html>
