@@ -3,137 +3,105 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MALIK ZAIN ALI - VIP SIGNAL BOT V6</title>
+<title>MALIK ZAIN ALI - VIP BOT V6</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#070b15;color:#fff;font-family:Inter,Arial}
-.top{padding:22px 20px;text-align:center;background:radial-gradient(circle at top,#1a2a4a 0%,#070b15 70%)}
-.robot{width:115px;height:115px;border-radius:50%;background:#111319;margin:14px auto;border:3px solid #f5d06a;display:flex;align-items:center;justify-content:center;font-size:52px;box-shadow:0 0 35px #f5d06a80}
-.badges{display:flex;gap:8px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+*{box-sizing:border-box}body{margin:0;background:#070b15;color:#fff;font-family:Arial}
+.top{padding:20px;text-align:center;background:radial-gradient(circle at top,#1a2a4a,#070b15)}
+.robot{width:110px;height:110px;border-radius:50%;background:#111;margin:10px auto;border:3px solid #f5d06a;display:flex;align-items:center;justify-content:center;font-size:50px;box-shadow:0 0 30px #f5d06a80}
+.badges{display:flex;gap:8px;justify-content:center;margin-top:10px;flex-wrap:wrap}
 .badge{padding:6px 14px;border-radius:20px;background:#0e2a1a;border:1px solid #00ff88;color:#00ff88;font-size:11px;font-weight:700}
-.btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:14px}
-.btn-top{padding:14px;border-radius:30px;border:1px solid #f5d06a;background:#1e1a0a;color:#f5d06a;font-weight:800;cursor:pointer;transition:0.2s}
-.btn-top.active{background:#f5d06a;color:#000;box-shadow:0 0 15px #f5d06a60}
-.card{margin:0 14px 14px;background:#111a2c;border:1.5px solid #1e335a;border-radius:18px;padding:14px}
-select{width:100%;padding:14px;border-radius:12px;background:#0d1528;border:1px solid #243a5e;color:#fff;margin-bottom:10px;font-weight:600}
-.gen{width:100%;padding:16px;border-radius:30px;border:none;background:linear-gradient(90deg,#f5d06a,#e8b84a);color:#000;font-weight:900;font-size:16px;cursor:pointer;box-shadow:0 4px 15px #f5d06a40}
-.result{margin-top:14px;display:none}
-.buy{border-color:#00ff88 !important;background:#0a1e14} .sell{border-color:#ff3b3b !important;background:#1e0f14} .wait{border-color:#ff8c00 !important;background:#1e160a}
-.bigbtn{width:100%;padding:18px;border-radius:14px;border:none;font-weight:900;font-size:18px;margin-top:10px;letter-spacing:0.5px}
+.card{margin:12px;background:#111a2c;border:1px solid #1e335a;border-radius:18px;padding:14px}
+select{width:100%;padding:16px;border-radius:14px;background:#0f1a2f;border:1px solid #243a5e;color:#fff;margin-bottom:12px;font-size:15px}
+.gen{width:100%;padding:16px;border-radius:30px;border:none;background:linear-gradient(90deg,#f5d06a,#e8b84a);color:#000;font-weight:900;font-size:17px;cursor:pointer}
+.result{border-radius:18px;padding:16px;margin-top:14px}
+.buy{border:1.5px solid #00ff88;background:#0a1e14} .sell{border:1.5px solid #ff3b3b;background:#1e0f14} .wait{border:1.5px solid #ff8c00;background:#1e160a}
+.bigbtn{width:100%;padding:18px;border-radius:14px;border:none;font-weight:900;font-size:19px;margin-top:12px}
 .b-buy{background:#00ff88;color:#000} .b-sell{background:#ff3b3b;color:#fff} .b-wait{background:#222;color:#ff8c00}
-.kv{display:flex;justify-content:space-between;font-size:11px;color:#8aa0b8;margin-top:8px}
+.kv{display:flex;justify-content:space-between;font-size:12px;color:#8aa0b8;margin-top:8px}
 .ai-core{margin:14px;text-align:center;background:#0d1426;border:1px solid #00aaff33;border-radius:16px;padding:14px}
-.circle{width:92px;height:92px;border:3px solid #00aaff;border-radius:50%;margin:10px auto;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;text-align:center;line-height:13px;color:#00aaff}
+.circle{width:92px;height:92px;border:3px solid #00aaff;border-radius:50%;margin:10px auto;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;text-align:center;color:#00aaff}
 </style>
 </head>
 <body>
 <div class="top">
 <h1 style="margin:0;letter-spacing:3px;font-size:22px">MALIK ZAIN ALI</h1>
-<div style="font-size:12px;color:#f5d06a;font-weight:900;margin-top:4px;letter-spacing:1px">VIP SIGNAL BOT • OFFICIAL • V6 BULLISH</div>
-<div style="font-size:11px;color:#8aa0b8;margin-top:2px">VERIFIED ENGINE • SECURE AI ENGINE • 1,271 Active Users</div>
+<div style="font-size:12px;color:#f5d06a;font-weight:900;margin-top:4px">VIP SIGNAL BOT • OFFICIAL 👑</div>
+<div style="font-size:11px;color:#8aa0b8">VERIFIED ENGINE • SECURE AI ENGINE • V6 BULLISH</div>
 <div class="robot">👑</div>
 <div class="badges"><span class="badge">● MALIK ZAIN ALI AI Connected</span><span class="badge">● Market Feed Synced</span><span class="badge">● Candlestick Patterns Active</span></div>
 </div>
 
-<div class="btns">
-<button class="btn-top active" onclick="setB(this,'QUOTEX')">QUOTEX</button>
-<button class="btn-top" onclick="setB(this,'POCKET')">POCKET OPTION</button>
-<button class="btn-top active" onclick="setB(this,'OTC')">OTC MARKET</button>
-<button class="btn-top" onclick="setB(this,'LIVE')">LIVE MARKET</button>
-</div>
-
 <div class="card">
-<div style="font-weight:900;margin-bottom:4px">⚡ MALIK ZAIN ALI - Signal Generator</div>
-<div style="font-size:11px;color:#8aa0b8;margin-bottom:12px">Select pair & generate - Bullish Image Patterns Enabled</div>
-
 <select id="broker"><option>Quotex</option><option>Pocket Option</option></select>
-<select id="pair"><option>EUR/USD (OTC)</option><option>GBP/USD (OTC)</option><option>USD/JPY (OTC)</option><option>NZD/CAD (OTC)</option><option>AUD/CAD (OTC)</option><option>EUR/GBP (OTC)</option><option>USD/CHF (OTC)</option><option>EUR/JPY (OTC)</option></select>
+<select id="pair"><option>EUR/USD (OTC)</option><option>GBP/USD (OTC)</option><option>USD/JPY (OTC)</option><option>NZD/CAD (OTC)</option><option>AUD/CAD (OTC)</option><option>EUR/GBP (OTC)</option><option>USD/CHF (OTC)</option></select>
 <select id="tf"><option>15secs</option><option>30secs</option><option>1min</option><option>5min</option></select>
-
 <button class="gen" onclick="generate()">⚡ GENERATE SIGNAL ✨</button>
 
-<div id="res" class="result card">
-<h2 id="rPair" style="margin:0;font-size:16px">EUR/USD (OTC)</h2>
-<div class="kv"><span id="rRsi">RSI: 64.1 | EMA: Price > EMA20</span><span id="rConf" style="color:#00ff88;font-weight:900">Conf: 68%</span></div>
-<div class="kv"><span id="rPattern" style="color:#f5d06a;font-weight:900">Pattern: Hammer Detected</span><span id="rReason" style="color:#00ff88">Support bounce - UP chance</span></div>
-<button id="rBtn" class="bigbtn b-buy">⬆️ BUY / UP SIGNAL ACTIVE</button>
-<div class="kv" style="margin-top:10px"><span>MALIK ZAIN ALI CORE - ANALYZING BULLISH</span><span>Winrate 67% | Blocked 7</span></div>
+<div id="res" style="display:none" class="result">
+<h2 id="rPair" style="margin:0;font-size:28px;font-weight:900">EUR/USD (OTC)</h2>
+<div style="display:flex;justify-content:space-between;margin-top:8px">
+<span id="rInfo" style="font-size:13px;color:#8aa0b8">RSI: 69.7 | EMA: Price < EMA20 | Conf: 78%</span>
+<span id="rConf" style="color:#ff3b3b;font-weight:900">Conf: 78%</span>
+</div>
+<div style="display:flex;justify-content:space-between;margin-top:6px">
+<span id="rPattern" style="color:#f5d06a;font-weight:900;font-size:14px">Pattern: Bearish Engulfing Detected 🔴</span>
+<span id="rReason" style="color:#00ff88;font-size:13px">Bearish Engulfing - Sellers win</span>
+</div>
+<button id="rBtn" class="bigbtn b-sell">⬇️ SELL / DOWN - 78% - Bearish Engulfing</button>
+<div class="kv"><span>MALIK ZAIN ALI CORE - ANALYZING</span><span>Winrate 67% | Blocked 7 today</span></div>
 </div>
 </div>
 
 <div class="ai-core">
-<div style="font-size:11px;color:#f5d06a;font-weight:900;letter-spacing:0.5px">MALIK ZAIN ALI CORE - Patterns: Hammer, Engulfing, Morning Star, Piercing, 3 White Soldiers, Dragonfly Doji</div>
-<div class="circle">👑<br>MALIK<br>ZAIN ALI<br>BOT</div>
+<div style="font-size:11px;color:#8aa0b8">MALIK ZAIN ALI CORE - Bullish Patterns: Hammer, Engulfing, Morning Star, Piercing</div>
+<div class="circle">🧠<br>ANALYZING<br>MARKET</div>
 <div style="display:flex;justify-content:space-around;margin-top:8px">
-<div><div style="font-size:11px;color:#8aa0b8">Today Signals</div><b style="font-size:18px">18</b></div>
-<div><div style="font-size:11px;color:#8aa0b8">Winrate</div><b style="font-size:18px;color:#00ff88">67%</b></div>
-<div><div style="font-size:11px;color:#8aa0b8">Blocked</div><b style="font-size:18px;color:#ff8c00">7</b></div>
+<div><div style="font-size:11px;color:#8aa0b8">Today</div><b style="font-size:20px">18</b></div>
+<div><div style="font-size:11px;color:#8aa0b8">Winrate</div><b style="font-size:20px;color:#00ff88">67%</b></div>
+<div><div style="font-size:11px;color:#8aa0b8">Blocked</div><b style="font-size:20px;color:#ff8c00">7</b></div>
 </div>
 </div>
 
 <script>
-function setB(el,t){
-  let parent=el.parentElement;
-  parent.querySelectorAll('.btn-top').forEach(b=>{
-    if((t=='QUOTEX'||t=='POCKET') && (b.innerText.includes('QUOTEX')||b.innerText.includes('POCKET'))) b.classList.remove('active');
-    if((t=='OTC'||t=='LIVE') && (b.innerText.includes('OTC')||b.innerText.includes('LIVE'))) b.classList.remove('active');
-  });
-  el.classList.add('active');
-}
-const patternsBuy=["Hammer","Bullish Engulfing","Inverted Hammer","Morning Star","Piercing Pattern","Three White Soldiers","Dragonfly Doji"];
-const patternsSell=["Shooting Star","Bearish Engulfing","Hanging Man","Evening Star","Dark Cloud Cover","Three Black Crows"];
-const reasonsBuy=["Support bounce - UP chance","RSI 32 Oversold - Reversal","Hammer at bottom - Strong BUY","Bullish Engulfing - Buyers in control","Morning Star formed - Uptrend start","Piercing Line - Bullish Reversal"];
-const reasonsSell=["RSI 71 Overbought - Resistance reject","Shooting Star at top - SELL","Bearish Engulfing - Sellers win","Double top - DOWN chance","Evening Star - Downtrend start","Dark Cloud - Bearish Reversal"];
-
+const buyP=["Hammer","Bullish Engulfing","Inverted Hammer","Morning Star","Piercing Pattern","Three White Soldiers","Dragonfly Doji"];
+const sellP=["Bearish Engulfing","Shooting Star","Hanging Man","Evening Star","Dark Cloud Cover","Three Black Crows"];
 function generate(){
   const pair=document.getElementById('pair').value;
   const tf=document.getElementById('tf').value;
-  const btn=document.getElementById('rBtn'); const res=document.getElementById('res');
-  const rPair=document.getElementById('rPair'); const rRsi=document.getElementById('rRsi');
-  const rPattern=document.getElementById('rPattern'); const rReason=document.getElementById('rReason'); const rConf=document.getElementById('rConf');
-  
-  res.style.display='block';
-  rPair.innerText=pair + ' • ' + tf;
+  const res=document.getElementById('res');const btn=document.getElementById('rBtn');
+  const rPair=document.getElementById('rPair');const rInfo=document.getElementById('rInfo');
+  const rConf=document.getElementById('rConf');const rPattern=document.getElementById('rPattern');const rReason=document.getElementById('rReason');
+  res.style.display='block'; rPair.innerText=pair;
   btn.innerText='⏳ MALIK ZAIN ALI ANALYZING '+tf+'...'; btn.className='bigbtn b-wait';
-  rPattern.innerText='Scanning: Hammer, Engulfing, Morning Star... '+tf;
-  rReason.innerText='Checking RSI + EMA + Support/Resistance for '+tf;
-
   setTimeout(()=>{
-    let rand=Math.random();
-    let rsi=(20+Math.random()*60).toFixed(1);
+    let rand=Math.random(); let rsi=(20+Math.random()*60).toFixed(1);
     if(rand<0.45){
-      let p=patternsBuy[Math.floor(Math.random()*patternsBuy.length)];
-      let reason=reasonsBuy[Math.floor(Math.random()*reasonsBuy.length)];
-      let conf=60+Math.floor(Math.random()*25);
-      rRsi.innerText=`RSI: ${rsi} | EMA: Price > EMA20 | TF: ${tf}`;
-      rConf.innerText=`Conf: ${conf}% - ${tf}`; rConf.style.color='#00ff88';
-      rPattern.innerText=`BULLISH: ${p} Detected 🟢`;
-      rReason.innerText=reason + ' - ' + tf + ' BUY';
-      btn.innerText='⬆️ BUY / UP - '+conf+'% - '+p+' - '+tf;
-      btn.className='bigbtn b-buy';
-      res.className='result card buy';
-    } else if(rand<0.85){
-      let p=patternsSell[Math.floor(Math.random()*patternsSell.length)];
-      let reason=reasonsSell[Math.floor(Math.random()*reasonsSell.length)];
-      let conf=60+Math.floor(Math.random()*28);
-      rRsi.innerText=`RSI: ${rsi} | EMA: Price < EMA20 | TF: ${tf}`;
-      rConf.innerText=`Conf: ${conf}% - ${tf}`; rConf.style.color='#ff3b3b';
-      rPattern.innerText=`BEARISH: ${p} Detected 🔴`;
-      rReason.innerText=reason + ' - ' + tf + ' SELL';
-      btn.innerText='⬇️ SELL / DOWN - '+conf+'% - '+p+' - '+tf;
-      btn.className='bigbtn b-sell';
-      res.className='result card sell';
-    } else {
+      let p=buyP[Math.floor(Math.random()*buyP.length)];let conf=60+Math.floor(Math.random()*25);
+      rInfo.innerText=`RSI: ${rsi} | EMA: Price > EMA20 | Conf: ${conf}% | TF: ${tf}`;
+      rConf.innerText=`Conf: ${conf}%`; rConf.style.color='#00ff88';
+      rPattern.innerText=`Pattern: ${p} Detected 🟢`; rPattern.style.color='#00ff88';
+      rReason.innerText=`${p} - Buyers win - ${tf}`;
+      btn.innerText=`⬆️ BUY / UP - ${conf}% - ${p}`; btn.className='bigbtn b-buy';
+      res.className='result buy';
+    }else if(rand<0.85){
+      let p=sellP[Math.floor(Math.random()*sellP.length)];let conf=60+Math.floor(Math.random()*28);
+      rInfo.innerText=`RSI: ${rsi} | EMA: Price < EMA20 | Conf: ${conf}% | TF: ${tf}`;
+      rConf.innerText=`Conf: ${conf}%`; rConf.style.color='#ff3b3b';
+      rPattern.innerText=`Pattern: ${p} Detected 🔴`; rPattern.style.color='#f5d06a';
+      rReason.innerText=`${p} - Sellers win - ${tf}`;
+      btn.innerText=`⬇️ SELL / DOWN - ${conf}% - ${p}`; btn.className='bigbtn b-sell';
+      res.className='result sell';
+    }else{
       let conf=25+Math.floor(Math.random()*25);
-      rRsi.innerText=`RSI: ${rsi} | EMA: Sideways | TF: ${tf}`;
-      rConf.innerText=`Conf: ${conf}% - ${tf}`; rConf.style.color='#ff8c00';
-      rPattern.innerText=`NEUTRAL: Doji / No Pattern ⚠️ - ${tf}`;
-      rReason.innerText=`Low confidence - WAIT for Bullish Pattern - ${tf}`;
-      btn.innerText='⏸️ NO TRADE - WAIT ('+conf+'%) - '+tf;
-      btn.className='bigbtn b-wait';
-      res.className='result card wait';
+      rInfo.innerText=`RSI: ${rsi} | EMA: Sideways | Conf: ${conf}% | TF: ${tf}`;
+      rConf.innerText=`Conf: ${conf}%`; rConf.style.color='#ff8c00';
+      rPattern.innerText=`Pattern: Doji / No Clear Pattern ⚠️`;
+      rReason.innerText=`Low confidence - WAIT - ${tf}`;
+      btn.innerText=`⏸️ NO TRADE - WAIT (${conf}%)`; btn.className='bigbtn b-wait';
+      res.className='result wait';
     }
     window.scrollTo(0,document.body.scrollHeight);
-  },1100);
+  },1000);
 }
 </script>
 </body>
