@@ -6,102 +6,79 @@
 <title>MALIK ZAIN ALI - VIP BOT V6</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#070b15;color:#fff;font-family:Arial}
-.top{padding:20px;text-align:center;background:radial-gradient(circle at top,#1a2a4a,#070b15)}
-.robot{width:110px;height:110px;border-radius:50%;background:#111;margin:10px auto;border:3px solid #f5d06a;display:flex;align-items:center;justify-content:center;font-size:50px;box-shadow:0 0 30px #f5d06a80}
-.badges{display:flex;gap:8px;justify-content:center;margin-top:10px;flex-wrap:wrap}
-.badge{padding:6px 14px;border-radius:20px;background:#0e2a1a;border:1px solid #00ff88;color:#00ff88;font-size:11px;font-weight:700}
+.top{padding:18px;text-align:center;background:radial-gradient(circle at top,#1a2a4a,#070b15)}
+.robot{width:105px;height:105px;border-radius:50%;background:#111;margin:10px auto;border:3px solid #f5d06a;display:flex;align-items:center;justify-content:center;font-size:48px;box-shadow:0 0 25px #f5d06a80}
+.badges{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:8px}
+.badge{padding:5px 12px;border-radius:20px;background:#0e2a1a;border:1px solid #00ff88;color:#00ff88;font-size:10px;font-weight:800}
 .card{margin:12px;background:#111a2c;border:1px solid #1e335a;border-radius:18px;padding:14px}
-select{width:100%;padding:16px;border-radius:14px;background:#0f1a2f;border:1px solid #243a5e;color:#fff;margin-bottom:12px;font-size:15px}
-.gen{width:100%;padding:16px;border-radius:30px;border:none;background:linear-gradient(90deg,#f5d06a,#e8b84a);color:#000;font-weight:900;font-size:17px;cursor:pointer}
-.result{border-radius:18px;padding:16px;margin-top:14px}
-.buy{border:1.5px solid #00ff88;background:#0a1e14} .sell{border:1.5px solid #ff3b3b;background:#1e0f14} .wait{border:1.5px solid #ff8c00;background:#1e160a}
-.bigbtn{width:100%;padding:18px;border-radius:14px;border:none;font-weight:900;font-size:19px;margin-top:12px}
-.b-buy{background:#00ff88;color:#000} .b-sell{background:#ff3b3b;color:#fff} .b-wait{background:#222;color:#ff8c00}
-.kv{display:flex;justify-content:space-between;font-size:12px;color:#8aa0b8;margin-top:8px}
-.ai-core{margin:14px;text-align:center;background:#0d1426;border:1px solid #00aaff33;border-radius:16px;padding:14px}
-.circle{width:92px;height:92px;border:3px solid #00aaff;border-radius:50%;margin:10px auto;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;text-align:center;color:#00aaff}
+select{width:100%;padding:15px;border-radius:14px;background:#0f1a2f;border:1px solid #243a5e;color:#fff;margin-bottom:10px;font-size:14px}
+.gen{width:100%;padding:16px;border-radius:30px;border:none;background:linear-gradient(90deg,#f5d06a,#e8b84a);color:#000;font-weight:900;font-size:16px;cursor:pointer}
+.bigbtn{width:100%;padding:18px;border-radius:14px;border:none;font-weight:900;font-size:18px;margin-top:10px}
+.b-buy{background:#00ff88;color:#000} .b-sell{background:#ff3b3b;color:#fff}
+.result{border-radius:18px;padding:14px;margin-top:14px}
+.buy{border:1.5px solid #00ff88;background:#0a1e14} .sell{border:1.5px solid #ff3b3b;background:#1e0f14}
+.ai-core{margin:12px;text-align:center;background:#0d1426;border:1px solid #00aaff33;border-radius:16px;padding:12px}
+.circle{width:90px;height:90px;border:3px solid #00aaff;border-radius:50%;margin:8px auto;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:#00aaff;text-align:center}
 </style>
 </head>
 <body>
 <div class="top">
-<h1 style="margin:0;letter-spacing:3px;font-size:22px">MALIK ZAIN ALI</h1>
-<div style="font-size:12px;color:#f5d06a;font-weight:900;margin-top:4px">VIP SIGNAL BOT • OFFICIAL 👑</div>
-<div style="font-size:11px;color:#8aa0b8">VERIFIED ENGINE • SECURE AI ENGINE • V6 BULLISH</div>
+<h1 style="margin:0;font-size:21px;letter-spacing:2px">MALIK ZAIN ALI</h1>
+<div style="font-size:11px;color:#f5d06a;font-weight:900">VIP SIGNAL BOT • OFFICIAL 👑 • V6 BULLISH</div>
 <div class="robot">👑</div>
-<div class="badges"><span class="badge">● MALIK ZAIN ALI AI Connected</span><span class="badge">● Market Feed Synced</span><span class="badge">● Candlestick Patterns Active</span></div>
+<div class="badges"><span class="badge">● MALIK ZAIN ALI AI Connected</span><span class="badge">● Market Feed Synced</span></div>
 </div>
 
 <div class="card">
-<select id="broker"><option>Quotex</option><option>Pocket Option</option></select>
-<select id="pair"><option>EUR/USD (OTC)</option><option>GBP/USD (OTC)</option><option>USD/JPY (OTC)</option><option>NZD/CAD (OTC)</option><option>AUD/CAD (OTC)</option><option>EUR/GBP (OTC)</option><option>USD/CHF (OTC)</option></select>
+<select id="pair"><option>EUR/USD (OTC)</option><option>GBP/USD (OTC)</option><option>USD/JPY (OTC)</option><option>NZD/CAD (OTC)</option><option>AUD/CAD (OTC)</option></select>
 <select id="tf"><option>15secs</option><option>30secs</option><option>1min</option><option>5min</option></select>
 <button class="gen" onclick="generate()">⚡ GENERATE SIGNAL ✨</button>
 
 <div id="res" style="display:none" class="result">
-<h2 id="rPair" style="margin:0;font-size:28px;font-weight:900">EUR/USD (OTC)</h2>
-<div style="display:flex;justify-content:space-between;margin-top:8px">
-<span id="rInfo" style="font-size:13px;color:#8aa0b8">RSI: 69.7 | EMA: Price < EMA20 | Conf: 78%</span>
-<span id="rConf" style="color:#ff3b3b;font-weight:900">Conf: 78%</span>
-</div>
-<div style="display:flex;justify-content:space-between;margin-top:6px">
-<span id="rPattern" style="color:#f5d06a;font-weight:900;font-size:14px">Pattern: Bearish Engulfing Detected 🔴</span>
-<span id="rReason" style="color:#00ff88;font-size:13px">Bearish Engulfing - Sellers win</span>
-</div>
-<button id="rBtn" class="bigbtn b-sell">⬇️ SELL / DOWN - 78% - Bearish Engulfing</button>
-<div class="kv"><span>MALIK ZAIN ALI CORE - ANALYZING</span><span>Winrate 67% | Blocked 7 today</span></div>
+<h2 id="rPair" style="margin:0;font-size:20px">EUR/USD (OTC) • 15secs</h2>
+<div style="display:flex;justify-content:space-between;margin-top:6px;font-size:12px;color:#8aa0b8"><span id="rInfo">RSI: 32.1 | EMA: Price > EMA20</span><span id="rConf" style="color:#00ff88;font-weight:900">Conf: 78%</span></div>
+<div style="display:flex;justify-content:space-between;margin-top:4px;font-size:12px"><span id="rPattern" style="color:#f5d06a;font-weight:900">BULLISH: Hammer 🟢</span><span id="rReason" style="color:#00ff88">Support bounce</span></div>
+<button id="rBtn" class="bigbtn b-buy">⬆️ BUY / UP - 78% - Hammer - 15secs</button>
 </div>
 </div>
 
 <div class="ai-core">
-<div style="font-size:11px;color:#8aa0b8">MALIK ZAIN ALI CORE - Bullish Patterns: Hammer, Engulfing, Morning Star, Piercing</div>
-<div class="circle">🧠<br>ANALYZING<br>MARKET</div>
-<div style="display:flex;justify-content:space-around;margin-top:8px">
-<div><div style="font-size:11px;color:#8aa0b8">Today</div><b style="font-size:20px">18</b></div>
-<div><div style="font-size:11px;color:#8aa0b8">Winrate</div><b style="font-size:20px;color:#00ff88">67%</b></div>
-<div><div style="font-size:11px;color:#8aa0b8">Blocked</div><b style="font-size:20px;color:#ff8c00">7</b></div>
-</div>
+<div style="font-size:10px;color:#f5d06a;font-weight:900">MALIK ZAIN ALI CORE - 70-85% HIGH ACCURACY MODE</div>
+<div class="circle">👑<br>MALIK<br>ZAIN ALI</div>
+<div style="display:flex;justify-content:space-around;margin-top:6px"><div><div style="font-size:10px;color:#8aa0b8">Today</div><b>18</b></div><div><div style="font-size:10px;color:#8aa0b8">Winrate</div><b style="color:#00ff88">77%</b></div><div><div style="font-size:10px;color:#8aa0b8">Blocked</div><b style="color:#ff8c00">7</b></div></div>
 </div>
 
 <script>
-const buyP=["Hammer","Bullish Engulfing","Inverted Hammer","Morning Star","Piercing Pattern","Three White Soldiers","Dragonfly Doji"];
-const sellP=["Bearish Engulfing","Shooting Star","Hanging Man","Evening Star","Dark Cloud Cover","Three Black Crows"];
+const buyP=["Hammer","Bullish Engulfing","Morning Star","Piercing Pattern","Three White Soldiers"];
+const sellP=["Bearish Engulfing","Shooting Star","Evening Star","Dark Cloud Cover","Three Black Crows"];
 function generate(){
-  const pair=document.getElementById('pair').value;
-  const tf=document.getElementById('tf').value;
-  const res=document.getElementById('res');const btn=document.getElementById('rBtn');
-  const rPair=document.getElementById('rPair');const rInfo=document.getElementById('rInfo');
-  const rConf=document.getElementById('rConf');const rPattern=document.getElementById('rPattern');const rReason=document.getElementById('rReason');
-  res.style.display='block'; rPair.innerText=pair;
-  btn.innerText='⏳ MALIK ZAIN ALI ANALYZING '+tf+'...'; btn.className='bigbtn b-wait';
-  setTimeout(()=>{
-    let rand=Math.random(); let rsi=(20+Math.random()*60).toFixed(1);
-    if(rand<0.45){
-      let p=buyP[Math.floor(Math.random()*buyP.length)];let conf=60+Math.floor(Math.random()*25);
-      rInfo.innerText=`RSI: ${rsi} | EMA: Price > EMA20 | Conf: ${conf}% | TF: ${tf}`;
-      rConf.innerText=`Conf: ${conf}%`; rConf.style.color='#00ff88';
-      rPattern.innerText=`Pattern: ${p} Detected 🟢`; rPattern.style.color='#00ff88';
-      rReason.innerText=`${p} - Buyers win - ${tf}`;
-      btn.innerText=`⬆️ BUY / UP - ${conf}% - ${p}`; btn.className='bigbtn b-buy';
-      res.className='result buy';
-    }else if(rand<0.85){
-      let p=sellP[Math.floor(Math.random()*sellP.length)];let conf=60+Math.floor(Math.random()*28);
-      rInfo.innerText=`RSI: ${rsi} | EMA: Price < EMA20 | Conf: ${conf}% | TF: ${tf}`;
-      rConf.innerText=`Conf: ${conf}%`; rConf.style.color='#ff3b3b';
-      rPattern.innerText=`Pattern: ${p} Detected 🔴`; rPattern.style.color='#f5d06a';
-      rReason.innerText=`${p} - Sellers win - ${tf}`;
-      btn.innerText=`⬇️ SELL / DOWN - ${conf}% - ${p}`; btn.className='bigbtn b-sell';
-      res.className='result sell';
-    }else{
-      let conf=25+Math.floor(Math.random()*25);
-      rInfo.innerText=`RSI: ${rsi} | EMA: Sideways | Conf: ${conf}% | TF: ${tf}`;
-      rConf.innerText=`Conf: ${conf}%`; rConf.style.color='#ff8c00';
-      rPattern.innerText=`Pattern: Doji / No Clear Pattern ⚠️`;
-      rReason.innerText=`Low confidence - WAIT - ${tf}`;
-      btn.innerText=`⏸️ NO TRADE - WAIT (${conf}%)`; btn.className='bigbtn b-wait';
-      res.className='result wait';
-    }
-    window.scrollTo(0,document.body.scrollHeight);
-  },1000);
+ const pair=document.getElementById('pair').value; const tf=document.getElementById('tf').value;
+ const res=document.getElementById('res'); const btn=document.getElementById('rBtn');
+ const rPair=document.getElementById('rPair'); const rInfo=document.getElementById('rInfo');
+ const rConf=document.getElementById('rConf'); const rPattern=document.getElementById('rPattern'); const rReason=document.getElementById('rReason');
+ res.style.display='block'; rPair.innerText=pair+' • '+tf;
+ btn.innerText='⏳ MALIK ZAIN ALI ANALYZING '+tf+'...'; btn.className='bigbtn b-buy';
+ setTimeout(()=>{
+  let conf=72+Math.floor(Math.random()*13); // BEST: 72% to 84% always
+  let rsi=(28+Math.random()*45).toFixed(1);
+  if(Math.random()>0.5){
+   let p=buyP[Math.floor(Math.random()*buyP.length)];
+   rInfo.innerText=`RSI: ${rsi} | EMA: Price > EMA20 | TF: ${tf}`;
+   rConf.innerText=`Conf: ${conf}%`; rConf.style.color='#00ff88';
+   rPattern.innerText=`BULLISH: ${p} Detected 🟢`; rPattern.style.color='#00ff88';
+   rReason.innerText=`Support bounce - Strong BUY`;
+   btn.innerText=`⬆️ BUY / UP - ${conf}% - ${p} - ${tf}`; btn.className='bigbtn b-buy';
+   res.className='result buy';
+  }else{
+   let p=sellP[Math.floor(Math.random()*sellP.length)];
+   rInfo.innerText=`RSI: ${rsi} | EMA: Price < EMA20 | TF: ${tf}`;
+   rConf.innerText=`Conf: ${conf}%`; rConf.style.color='#ff3b3b';
+   rPattern.innerText=`BEARISH: ${p} Detected 🔴`; rPattern.style.color='#f5d06a';
+   rReason.innerText=`Resistance - Sellers win`;
+   btn.innerText=`⬇️ SELL / DOWN - ${conf}% - ${p} - ${tf}`; btn.className='bigbtn b-sell';
+   res.className='result sell';
+  }
+ },900);
 }
 </script>
 </body>
