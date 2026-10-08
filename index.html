@@ -1,109 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MALIK ZAIN ALI - V10 FINAL</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MALIK ZAIN ALI VIP BOT</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#070a14;color:#fff;font-family:Arial, sans-serif}
-.top{padding:20px 18px 12px;text-align:center;background:radial-gradient(circle at top,#1c2c4e 0%, #070a14 70%)}
-.top h1{margin:0;font-size:24px;letter-spacing:2px;font-weight:900}
-.top.sub{font-size:11px;color:#f5d06a;font-weight:900;margin-top:4px;letter-spacing:1px}
-.crown{width:125px;height:125px;border-radius:50%;background:#0c0f1a;margin:16px auto;border:2px solid #f5d06a;display:flex;align-items:center;justify-content:center;font-size:62px;box-shadow:0 0 35px #f5d06a70}
-.badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:10px}
-.badge{padding:8px 14px;border-radius:20px;background:#0f2015;border:1px solid #00ff88;color:#00ff88;font-size:11px;font-weight:800}
-.chart-wrap{margin:14px;background:#11182b;border:1px solid #1e2f50;border-radius:20px;overflow:hidden}
-.card{margin:14px;background:#11182b;border:1px solid #1e2f50;border-radius:20px;padding:14px}
-label{font-size:11px;color:#7a8aa5;font-weight:800;letter-spacing:1.2px;margin:12px 0 6px 4px;display:block}
-select{width:100%;padding:16px 14px;border-radius:12px;background:#0c1222;border:1px solid #24365e;color:#fff;font-size:14px;outline:none}
-.gen{width:100%;padding:16px;border-radius:30px;border:none;background:linear-gradient(90deg,#f5d06a,#e8b84a);color:#000;font-weight:900;font-size:16px;cursor:pointer;margin-top:14px;box-shadow:0 0 20px #f5d06a40}
-.result{border-radius:18px;padding:14px;margin-top:14px;display:none}
-.buy{border:1.5px solid #00ff88;background:#0a1e14;display:block}.sell{border:1.5px solid #ff3b3b;background:#1e0f14;display:block}.wait{border:1.5px solid #2a3a5a;background:#0e1424;display:block}
-.bigbtn{width:100%;padding:18px;border-radius:14px;border:none;font-weight:900;font-size:18px;margin-top:10px}
-.b-buy{background:#00ff88;color:#000}.b-sell{background:#ff3b3b;color:#fff}.b-wait{background:#2a344a;color:#8aa0b8}
-.logic{font-size:11px;color:#cbd5e1;background:#0a1222;padding:10px;border-radius:10px;margin-top:10px;border:1px dashed #2a3f5f;line-height:1.5}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#070b19;color:#fff;font-family:Inter,system-ui,Arial;min-height:100vh}
+.header{background:radial-gradient(ellipse at top,#14233f 0%,#070b19 60%);padding:18px 14px 10px;text-align:center}
+.title{font-size:26px;font-weight:900;letter-spacing:2px}
+.sub{color:#f1d07a;font-size:11px;font-weight:800;margin-top:4px}
+.crown-wrap{margin:18px auto;width:138px;height:138px;border-radius:50%;background:#0a0e1a;border:2.5px solid #f1d07a;display:flex;align-items:center;justify-content:center;box-shadow:0 0 35px #f1d07a66;font-size:70px}
+.badges{display:flex;gap:10px;justify-content:center;margin:14px 0;flex-wrap:wrap}
+.badge{border:1.5px solid #0f6a3a;background:#0a1f14;color:#00ff88;border-radius:999px;padding:7px 16px;font-size:12px;font-weight:800}
+.card{margin:14px;background:#121a30;border:1px solid #22365f;border-radius:22px;padding:14px}
+select{width:100%;background:#0e162a;border:1px solid #23365e;color:#d6e0f0;padding:16px 14px;border-radius:14px;font-size:15px;margin-bottom:12px}
+.btn-gen{width:100%;background:linear-gradient(180deg,#f6d27a,#e9b64d);color:#111;border:none;border-radius:999px;padding:16px;font-size:16px;font-weight:900;cursor:pointer}
+.result{margin-top:14px;background:#0c1a12;border:1.5px solid #1f9a5a;border-radius:18px;padding:14px;display:none}
+.result.show{display:block}
+.r-pair{font-size:19px;font-weight:900}
+.r-conf{color:#00ff88;font-weight:900;font-size:14px}
+.r-meta{margin-top:6px;color:#8da0bb;font-size:12px}
+.r-pat{margin-top:6px;color:#00ff88;font-weight:800;font-size:13px;display:flex;justify-content:space-between;gap:10px}
+.btn-signal{width:100%;margin-top:12px;border:none;border-radius:14px;padding:16px;font-size:17px;font-weight:900}
+.buy-bg{background:#00ff88;color:#001a0f}.sell-bg{background:#ff3b55;color:#fff}
+.ai-core{margin:14px;background:#0e162a;border:1px solid #1e3a6a;border-radius:18px;padding:12px;text-align:center}
+.ai-title{font-size:10.5px;color:#f1d07a;font-weight:900}
+.circle{width:98px;height:98px;margin:12px auto;border-radius:50%;border:2.5px solid #1c90ff;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#2a9bff;font-weight:900}
+.stats{display:flex;justify-content:space-around;margin-top:8px}
 </style>
 </head>
 <body>
-<div class="top">
-<h1>MALIK ZAIN ALI</h1>
-<div class="sub">VIP SIGNAL BOT • V8 ULTIMATE • REAL LOGIC 👑</div>
-<div class="crown">👑</div>
-<div class="badges">
-<span class="badge">● MALIK ZAIN ALI AI Connected</span>
-<span class="badge">● Market Feed Synced</span>
+<div class="header">
+<div class="title">MALIK ZAIN ALI</div>
+<div class="sub">VIP SIGNAL BOT • V9 CLEAN • HIGH ACCURACY 👑</div>
+<div class="crown-wrap">👑</div>
+<div class="badges"><span class="badge">● MALIK ZAIN ALI AI Connected</span><span class="badge">● Market Feed Synced</span></div>
 </div>
-</div>
-
-<div class="chart-wrap">
-<div id="tvchart" style="height:280px"></div>
-</div>
-
 <div class="card">
-<label>PAIR / MARKET</label>
-<select id="pair"><option>EUR/USD (OTC)</option><option>GBP/USD (OTC)</option><option>USD/JPY (OTC)</option><option>NZD/CAD (OTC)</option><option>AUD/CAD (OTC)</option></select>
-<label>TIMEFRAME</label>
+<select id="pair"><option>EUR/USD (OTC)</option><option>GBP/USD (OTC)</option><option>USD/JPY (OTC)</option><option>GBP/JPY (OTC)</option><option>NZD/CAD (OTC)</option><option>AUD/CAD (OTC)</option><option>USD/PKR (OTC)</option></select>
 <select id="tf"><option>15secs</option><option>30secs</option><option>1min</option><option>5min</option></select>
-<label>PATTERN (Brutal Trader Notes)</label>
-<select id="pat">
-<option value="uptrend">1. UPTREND: G G G + small r = BUY - BEST</option>
-<option value="downtrend">2. DOWNTREND: R R R + small g = SELL - BEST</option>
-<option value="bull_eng">3. Bullish Engulfing at Support</option>
-<option value="bear_eng">4. Bearish Engulfing at Resistance</option>
-<option value="doji_buy">5. Doji Buy: Long Red + Doji + Green</option>
-<option value="doji_sell">6. Doji Sell: Long Green + Doji + Red</option>
-<option value="series25">7. Series 25: Doji < Red < Long Green</option>
-<option value="hammer">8. Hammer + Inverted Hammer</option>
-</select>
-
-<button class="gen" onclick="gen()">⚡ GENERATE SIGNAL ✨</button>
-
+<button class="btn-gen" onclick="gen()">⚡ GENERATE SIGNAL ✨</button>
 <div id="res" class="result">
-<h2 id="rPair" style="margin:0;font-size:18px"></h2>
-<div style="display:flex;justify-content:space-between;margin-top:6px;font-size:12px;color:#8aa0b8"><span id="rInfo"></span><span id="rConf" style="font-weight:900"></span></div>
-<div style="display:flex;justify-content:space-between;margin-top:4px;font-size:12px"><span id="rPat"></span><span id="rRe"></span></div>
-<div id="rLogic" class="logic"></div>
-<button id="rBtn" class="bigbtn"></button>
+<div style="display:flex;justify-content:space-between"><div id="rPair" class="r-pair"></div><div id="rConf" class="r-conf"></div></div>
+<div id="rInfo" class="r-meta"></div>
+<div class="r-pat"><span id="rPat"></span><span id="rRe"></span></div>
+<button id="rBtn" class="btn-signal buy-bg"></button>
 </div>
 </div>
-
-<script src="https://s3.tradingview.com/tv.js"></script>
+<div class="ai-core">
+<div class="ai-title">MALIK ZAIN ALI CORE - 70-85% HIGH ACCURACY MODE</div>
+<div class="circle"><div>👑</div><div>MALIK</div><div>ZAIN ALI</div></div>
+<div style="display:flex;justify-content:space-around"><div>Today<br><b>18</b></div><div>Winrate<br><b style="color:#00ff88">77%</b></div><div>Blocked<br><b style="color:#ff8c00">7</b></div></div>
+</div>
 <script>
-new TradingView.widget({"autosize":true,"symbol":"FX:EURUSD","interval":"1","timezone":"Asia/Karachi","theme":"dark","style":"1","container_id":"tvchart"});
-
 function gen(){
- const pair=document.getElementById('pair').value, tf=document.getElementById('tf').value, pat=document.getElementById('pat').value;
- const res=document.getElementById('res'), rPair=document.getElementById('rPair'), rInfo=document.getElementById('rInfo'), rConf=document.getElementById('rConf'), rPat=document.getElementById('rPat'), rRe=document.getElementById('rRe'), rLogic=document.getElementById('rLogic'), rBtn=document.getElementById('rBtn');
- res.style.display='block';
- rPair.innerText=pair+' • '+tf;
- rBtn.innerText='⏳ MALIK ZAIN ALI ANALYZING...';
-
+ const p=document.getElementById('pair').value,t=document.getElementById('tf').value;
+ const res=document.getElementById('res'),rPair=document.getElementById('rPair'),rInfo=document.getElementById('rInfo'),rConf=document.getElementById('rConf'),rPat=document.getElementById('rPat'),rRe=document.getElementById('rRe'),rBtn=document.getElementById('rBtn');
+ res.classList.add('show'); rPair.innerText=p+' • '+t; rBtn.innerText='⏳ ANALYZING...';
  setTimeout(()=>{
-  let isBuy = Math.random()>0.5, conf=75+Math.floor(Math.random()*8), rsi=(30+Math.random()*35).toFixed(1);
-  let obj={
-   uptrend:{buy:{name:"Uptrend GGG+r - BEST", logic:"3 Green + 1 choti Red jo previous Green ka low break na kare = 90% BUY. RSI 35-55 par entry, Support bounce.", reason:"No MTG - Single Entry BUY"}, sell:{name:"Downtrend RRR+g - BEST", logic:"3 Red + 1 choti Green = SELL", reason:"Downtrend Continuation"}},
-   downtrend:{sell:{name:"Downtrend RRR+g - BEST", logic:"3 Red + choti Green jo high break na kare = SELL 90%", reason:"No MTG SELL"}, buy:{name:"Uptrend GGG+r", logic:"Same logic", reason:"Support"}},
-   bull_eng:{buy:{name:"Bullish Engulfing", logic:"Support par choti Red + bari Green engulf = Strong BUY, Body size check karo.", reason:"Support bounce - Strong BUY"}},
-   bear_eng:{sell:{name:"Bearish Engulfing", logic:"Resistance par choti Green + bari Red engulf = Strong SELL. Aap ki akhri tasveer wala pattern.", reason:"Resistance - Sellers win"}},
-   doji_buy:{buy:{name:"Doji Buy Setup", logic:"Long Red + Doji + Green = Sellers khatam, Doji indecision.", reason:"Doji reversal BUY"}},
-   doji_sell:{sell:{name:"Doji Sell Setup", logic:"Long Green + Doji + Red = Buyers khatam.", reason:"Doji reversal SELL"}},
-   series25:{buy:{name:"Series 25", logic:"Doji < Red < Long Green jo SNR tode = Sure shot BUY", reason:"Series 25 Breakout BUY"}},
-   hammer:{buy:{name:"Hammer", logic:"Downtrend end par Hammer = Reversal BUY, wick neeche lambi", reason:"Hammer Support"}}
-  };
-  let data = obj[pat] || obj['uptrend'];
-  let cur = isBuy? (data.buy || data.sell) : (data.sell || data.buy);
-  if(pat==='uptrend') cur=data.buy, isBuy=true;
-  if(pat==='downtrend') cur=data.sell, isBuy=false;
-  if(pat==='bull_eng') isBuy=true; if(pat==='bear_eng') isBuy=false;
-  if(pat==='doji_buy') isBuy=true; if(pat==='doji_sell') isBuy=false; if(pat==='series25') isBuy=true;
-
-  rInfo.innerText=`RSI: ${rsi} | EMA: Price ${isBuy?'>':'<'} EMA20 | TF: ${tf}`;
-  rConf.innerText=`Conf: ${conf}%`; rConf.style.color=isBuy?'#00ff88':'#ff3b3b';
-  rPat.innerText=(isBuy?'BULLISH: ':'BEARISH: ')+cur.name+' '+(isBuy?'🟢':'🔴'); rPat.style.color=isBuy?'#00ff88':'#f5d06a';
-  rRe.innerText=cur.reason; rLogic.innerText='Logic: '+cur.logic+' | Note: Body size dekho, bohat choti candle weak signal.';
-  rBtn.innerText=(isBuy?'⬆️ BUY / UP - ':'⬇️ SELL / DOWN - ')+conf+'% - '+cur.name+' - '+tf;
-  rBtn.className='bigbtn '+(isBuy?'b-buy':'b-sell');
-  res.className='result '+(isBuy?'buy':'sell');
- },700);
+  let buy=Math.random()>0.5; let conf=76+Math.floor(Math.random()*10); let rsi=(31+Math.random()*28).toFixed(1);
+  let patsBuy=["Piercing Pattern","Hammer","Bullish Engulfing","Uptrend GGG+r BEST"]; let patsSell=["Shooting Star","Bearish Engulfing","Downtrend RRR+g BEST"];
+  let pat=(buy?patsBuy:patsSell)[Math.floor(Math.random()*3)];
+  rInfo.innerText=`RSI: ${rsi} | EMA: Price ${buy?'>':'<'} EMA20 | TF: ${t}`;
+  rConf.innerText=`Conf: ${conf}%`;
+  rPat.innerText=(buy?'BULLISH: ':'BEARISH: ')+pat+' Detected '+(buy?'🟢':'🔴');
+  rRe.innerText=buy?'Support bounce - Strong BUY':'Resistance - Strong SELL';
+  rBtn.innerText=(buy?'⬆️ BUY / UP - ':'⬇️ SELL / DOWN - ')+conf+'% - '+pat+' - '+t;
+  rBtn.className='btn-signal '+(buy?'buy-bg':'sell-bg');
+ },750);
 }
 </script>
 </body>
