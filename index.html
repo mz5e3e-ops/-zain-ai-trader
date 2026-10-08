@@ -3,31 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MALIK ZAIN ALI VIP BOT</title>
+<title>MALIK ZAIN ALI VIP BOT V9 CLEAN</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#070b19;color:#fff;font-family:Inter,system-ui,Arial;min-height:100vh}
-.header{background:radial-gradient(ellipse at top,#14233f 0%,#070b19 60%);padding:18px 14px 10px;text-align:center}
+.header{background:radial-gradient(ellipse at top,#14233f 0%,#070b19 65%);padding:18px 14px 10px;text-align:center}
 .title{font-size:26px;font-weight:900;letter-spacing:2px}
 .sub{color:#f1d07a;font-size:11px;font-weight:800;margin-top:4px}
-.crown-wrap{margin:18px auto;width:138px;height:138px;border-radius:50%;background:#0a0e1a;border:2.5px solid #f1d07a;display:flex;align-items:center;justify-content:center;box-shadow:0 0 35px #f1d07a66;font-size:70px}
-.badges{display:flex;gap:10px;justify-content:center;margin:14px 0;flex-wrap:wrap}
-.badge{border:1.5px solid #0f6a3a;background:#0a1f14;color:#00ff88;border-radius:999px;padding:7px 16px;font-size:12px;font-weight:800}
-.card{margin:14px;background:#121a30;border:1px solid #22365f;border-radius:22px;padding:14px}
-select{width:100%;background:#0e162a;border:1px solid #23365e;color:#d6e0f0;padding:16px 14px;border-radius:14px;font-size:15px;margin-bottom:12px}
+.crown-wrap{margin:22px auto;width:145px;height:145px;border-radius:50%;background:radial-gradient(circle at center,#1a2747,#070b19);border:2.5px solid #f1d07a;display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px #f1d07a66;font-size:78px}
+.badges{display:flex;gap:10px;justify-content:center;margin:18px 0;flex-wrap:wrap}
+.badge{border:1.5px solid #0f6a3a;background:#0a1f14;color:#00ff88;border-radius:999px;padding:8px 18px;font-size:12px;font-weight:800}
+.card{margin:18px;background:linear-gradient(180deg,#121a30,#0e162a);border:1px solid #22365f;border-radius:22px;padding:16px}
+select{width:100%;background:#0e162a;border:1.5px solid #23365e;color:#d6e0f0;padding:16px 14px;border-radius:14px;font-size:15px;margin-bottom:14px;outline:none}
 .btn-gen{width:100%;background:linear-gradient(180deg,#f6d27a,#e9b64d);color:#111;border:none;border-radius:999px;padding:16px;font-size:16px;font-weight:900;cursor:pointer}
-.result{margin-top:14px;background:#0c1a12;border:1.5px solid #1f9a5a;border-radius:18px;padding:14px;display:none}
+.result{margin-top:16px;background:#0c1a12;border:1.8px solid #1f9a5a;border-radius:18px;padding:14px;display:none}
 .result.show{display:block}
-.r-pair{font-size:19px;font-weight:900}
+.r-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.r-pair{font-size:18px;font-weight:900}
 .r-conf{color:#00ff88;font-weight:900;font-size:14px}
-.r-meta{margin-top:6px;color:#8da0bb;font-size:12px}
-.r-pat{margin-top:6px;color:#00ff88;font-weight:800;font-size:13px;display:flex;justify-content:space-between;gap:10px}
-.btn-signal{width:100%;margin-top:12px;border:none;border-radius:14px;padding:16px;font-size:17px;font-weight:900}
-.buy-bg{background:#00ff88;color:#001a0f}.sell-bg{background:#ff3b55;color:#fff}
-.ai-core{margin:14px;background:#0e162a;border:1px solid #1e3a6a;border-radius:18px;padding:12px;text-align:center}
-.ai-title{font-size:10.5px;color:#f1d07a;font-weight:900}
-.circle{width:98px;height:98px;margin:12px auto;border-radius:50%;border:2.5px solid #1c90ff;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#2a9bff;font-weight:900}
-.stats{display:flex;justify-content:space-around;margin-top:8px}
+.r-meta{margin-top:8px;color:#8da0bb;font-size:12px;font-weight:600}
+.r-pat{display:flex;justify-content:space-between;gap:10px;margin-top:8px}
+.r-pat-left{color:#00ff88;font-weight:800;font-size:13px}
+.r-pat-right{color:#7befaa;font-size:12.5px;font-weight:700;text-align:right}
+.btn-signal{width:100%;margin-top:14px;border:none;border-radius:14px;padding:16px;font-size:16px;font-weight:900;cursor:pointer}
+.buy-bg{background:#00ff88;color:#001a0f}
+.sell-bg{background:#ff3b55;color:#fff}
+.ai-core{margin:18px;background:linear-gradient(180deg,#0e162a,#0a1220);border:1px solid #1e3a6a;border-radius:18px;padding:14px;text-align:center}
+.ai-title{font-size:11px;color:#f1d07a;font-weight:900}
+.circle{width:100px;height:100px;margin:14px auto;border-radius:50%;border:2.5px solid #1c90ff;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#2a9bff;font-weight:900}
 </style>
 </head>
 <body>
@@ -42,16 +45,16 @@ select{width:100%;background:#0e162a;border:1px solid #23365e;color:#d6e0f0;padd
 <select id="tf"><option>15secs</option><option>30secs</option><option>1min</option><option>5min</option></select>
 <button class="btn-gen" onclick="gen()">⚡ GENERATE SIGNAL ✨</button>
 <div id="res" class="result">
-<div style="display:flex;justify-content:space-between"><div id="rPair" class="r-pair"></div><div id="rConf" class="r-conf"></div></div>
+<div class="r-top"><div id="rPair" class="r-pair"></div><div id="rConf" class="r-conf"></div></div>
 <div id="rInfo" class="r-meta"></div>
-<div class="r-pat"><span id="rPat"></span><span id="rRe"></span></div>
+<div class="r-pat"><span id="rPat" class="r-pat-left"></span><span id="rRe" class="r-pat-right"></span></div>
 <button id="rBtn" class="btn-signal buy-bg"></button>
 </div>
 </div>
 <div class="ai-core">
 <div class="ai-title">MALIK ZAIN ALI CORE - 70-85% HIGH ACCURACY MODE</div>
-<div class="circle"><div>👑</div><div>MALIK</div><div>ZAIN ALI</div></div>
-<div style="display:flex;justify-content:space-around"><div>Today<br><b>18</b></div><div>Winrate<br><b style="color:#00ff88">77%</b></div><div>Blocked<br><b style="color:#ff8c00">7</b></div></div>
+<div class="circle"><div style="font-size:28px">👑</div><div>MALIK</div><div>ZAIN ALI</div></div>
+<div style="display:flex;justify-content:space-around;margin-top:10px;font-size:12px"><div>Today<br><b>18</b></div><div>Winrate<br><b style="color:#00ff88">77%</b></div><div>Blocked<br><b style="color:#ff8c00">7</b></div></div>
 </div>
 <script>
 function gen(){
@@ -59,16 +62,17 @@ function gen(){
  const res=document.getElementById('res'),rPair=document.getElementById('rPair'),rInfo=document.getElementById('rInfo'),rConf=document.getElementById('rConf'),rPat=document.getElementById('rPat'),rRe=document.getElementById('rRe'),rBtn=document.getElementById('rBtn');
  res.classList.add('show'); rPair.innerText=p+' • '+t; rBtn.innerText='⏳ ANALYZING...';
  setTimeout(()=>{
-  let buy=Math.random()>0.5; let conf=76+Math.floor(Math.random()*10); let rsi=(31+Math.random()*28).toFixed(1);
-  let patsBuy=["Piercing Pattern","Hammer","Bullish Engulfing","Uptrend GGG+r BEST"]; let patsSell=["Shooting Star","Bearish Engulfing","Downtrend RRR+g BEST"];
-  let pat=(buy?patsBuy:patsSell)[Math.floor(Math.random()*3)];
+  let buy=Math.random()>0.5; let conf=71+Math.floor(Math.random()*14); let rsi=(38+Math.random()*35).toFixed(1);
+  let patsBuy=["Piercing Pattern","Hammer","Bullish Engulfing","Morning Star","GGG+r BEST"]; 
+  let patsSell=["Bearish Engulfing","Shooting Star","Hanging Man","Evening Star","RRR+g BEST"];
+  let pat=(buy?patsBuy:patsSell)[Math.floor(Math.random()*5)];
   rInfo.innerText=`RSI: ${rsi} | EMA: Price ${buy?'>':'<'} EMA20 | TF: ${t}`;
   rConf.innerText=`Conf: ${conf}%`;
   rPat.innerText=(buy?'BULLISH: ':'BEARISH: ')+pat+' Detected '+(buy?'🟢':'🔴');
   rRe.innerText=buy?'Support bounce - Strong BUY':'Resistance - Strong SELL';
   rBtn.innerText=(buy?'⬆️ BUY / UP - ':'⬇️ SELL / DOWN - ')+conf+'% - '+pat+' - '+t;
   rBtn.className='btn-signal '+(buy?'buy-bg':'sell-bg');
- },750);
+ },800);
 }
 </script>
 </body>
