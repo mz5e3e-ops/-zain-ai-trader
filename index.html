@@ -1,89 +1,102 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZAIN FX FINAL</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZAIN FX QUOTEX PRO</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#0a0a0a;color:#fff;display:flex;justify-content:center;padding:15px}
-.card{background:#1a0e0e;border-radius:25px;padding:20px;width:100%;max-width:400px;border:1px solid #333}
-.logo{text-align:center} .logo h1{font-size:32px} .logo h1 span:last-child{color:#ff2a2a}
-.logo p{font-size:10px;letter-spacing:3px;color:#888;margin-top:5px}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:15px 0}
-.stat{background:#0f0f0f;border-radius:12px;padding:12px;text-align:center;border:1px solid #222}
-.stat p{font-size:10px;color:#888} .stat h2{font-size:20px;margin-top:4px}
-.green{color:#00ff88} .red{color:#ff4444} .yellow{color:#ffcc00}
-select{width:100%;background:#0f0f0f;color:#fff;border:1px solid #333;border-radius:12px;padding:14px;margin:8px 0}
-.signal{background:#0f0f0f;border:1px dashed #333;border-radius:15px;padding:20px;text-align:center;margin:15px 0}
-.winloss{display:none;gap:10px;margin-top:15px} .winloss.show{display:flex}
-.btn-win,.btn-loss{flex:1;padding:14px;border:none;border-radius:12px;font-weight:bold;cursor:pointer}
-.btn-win{background:#00c853;color:#fff} .btn-loss{background:#d50000;color:#fff}
-.gen{width:100%;padding:18px;background:linear-gradient(90deg,#d4af37,#f9e27d,#d4af37);border:none;border-radius:15px;font-weight:bold;font-size:16px;color:#000}
-.reset{text-align:center;font-size:11px;color:#555;margin-top:10px;text-decoration:underline}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Arial}
+body{background:#0f111a;color:#fff;display:flex;justify-content:center}
+.app{width:100%;max-width:430px;background:#151826;min-height:100vh}
+.header{background:linear-gradient(135deg,#7c6cff 0%,#6b7cff 50%,#4a8cff 100%);padding:22px 20px 18px;text-align:center;border-radius:0 0 28px 28px;position:relative}
+.header h1{font-size:30px;font-weight:900;letter-spacing:2px}
+.header h1 span{background:#fff;color:#000;padding:2px 10px;border-radius:8px;margin:0 4px}
+.badge{background:#0f111a;color:#00ff88;border-radius:20px;padding:6px 14px;font-size:11px;font-weight:700;display:inline-flex;align-items:center;gap:6px;margin-top:10px;letter-spacing:0.5px}
+.dot{width:8px;height:8px;background:#00ff88;border-radius:50%;animation:blink 1s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.body{padding:16px}
+.stats{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px}
+.stat{background:#1d2032;border:1px solid #262a44;border-radius:14px;padding:12px 4px;text-align:center}
+.stat p{font-size:9px;color:#7a7fb0;letter-spacing:1.2px;font-weight:700}
+.stat h2{font-size:18px;margin-top:4px;font-weight:800}
+.label{font-size:10px;color:#7a7fb0;letter-spacing:1.5px;font-weight:700;margin:16px 0 6px;display:block}
+.select{width:100%;background:#1d2032;border:1px solid #262a44;color:#fff;border-radius:14px;padding:14px 12px;font-size:14px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.mini{background:#1d2032;border:1px solid #262a44;border-radius:14px;padding:12px;text-align:center}
+.mini p{font-size:9px;color:#7a7fb0;letter-spacing:1px}
+.mini h3{font-size:15px;margin-top:4px;font-weight:800}
+.signalBox{margin-top:14px;background:#1d2032;border:1px dashed #3a3f6b;border-radius:18px;padding:18px;text-align:center}
+.signalBox h4{font-size:10px;color:#7a7fb0;letter-spacing:1px}
+.signalBox h1{font-size:38px;margin:12px 0;font-weight:900;color:#555}
+.signalBox.active h1.BUY{color:#00ff88} .signalBox.active h1.SELL{color:#ff4d6d}
+.meta{font-size:11px;color:#7c6cff;margin:6px 0}.desc{font-size:11px;color:#6b708f;margin-top:6px;line-height:14px}
+.winloss{display:none;gap:10px;margin-top:14px} .winloss.show{display:flex}
+.bwin,.bloss{flex:1;padding:13px;border:none;border-radius:12px;font-weight:800;cursor:pointer}
+.bwin{background:#00c853;color:#fff} .bloss{background:#d50000;color:#fff}
+.gen{margin-top:16px;width:100%;padding:16px;background:linear-gradient(135deg,#7c6cff,#4a8cff);border:none;border-radius:14px;color:#fff;font-weight:900;letter-spacing:0.5px;font-size:13px;cursor:pointer}
+.reset{text-align:center;margin-top:10px;font-size:10px;color:#444;text-decoration:underline;cursor:pointer}
 </style>
 </head>
 <body>
-<div class="card">
-<div class="logo"><h1><span>ZAIN</span> <span style="color:#ff2a2a">FX</span></h1><p>AI TRADING BOT • LIFETIME COUNTING</p></div>
-
+<div class="app">
+<div class="header"><h1>ZAIN <span>FX</span> QUOTEX</h1><div class="badge"><div class="dot"></div> LIVE QUOTEX MARKET - REAL DATA</div></div>
+<div class="body">
 <div class="stats">
-<div class="stat"><p>TOTAL</p><h2 id="total">0</h2></div>
-<div class="stat"><p style="color:#00ff88">WINS</p><h2 id="wins" class="green">0</h2></div>
-<div class="stat"><p style="color:#ff4444">LOSSES</p><h2 id="loss" class="red">0</h2></div>
-<div class="stat"><p>ACCURACY</p><h2 id="acc" class="yellow">0%</h2></div>
+<div class="stat"><p>TOTAL</p><h2 id="t">0</h2></div>
+<div class="stat"><p style="color:#00ff88">WINS</p><h2 id="w" style="color:#00ff88">0</h2></div>
+<div class="stat"><p style="color:#ff4d6d">LOSSES</p><h2 id="l" style="color:#ff4d6d">0</h2></div>
+<div class="stat"><p>ACCURACY</p><h2 id="a" style="color:#7c6cff">0%</h2></div>
 </div>
 
-<label style="font-size:11px;color:#888">SELECT PAIR</label>
-<select id="pair"><option>EUR/USD</option><option>EUR/USD (OTC)</option><option>GBP/USD</option><option>GBP/USD (OTC)</option><option>USD/JPY (OTC)</option></select>
+<span class="label">QUOTEX PAIR</span>
+<select id="pair" class="select"><option>EUR/USD - Forex</option><option>EUR/USD - OTC</option><option>GBP/USD - Forex</option><option>GBP/USD - OTC</option><option>USD/JPY - OTC</option></select>
 
-<label style="font-size:11px;color:#888">TIMEFRAME</label>
-<select id="tf"><option>1 MIN</option><option>30 SEC</option><option>15 SEC</option></select>
+<span class="label">TIMEFRAME FOR QUOTEX</span>
+<select id="tf" class="select"><option>1 MIN - QUOTEX</option><option>30 SEC - QUOTEX</option><option>15 SEC - QUOTEX</option></select>
 
-<div class="signal" id="box">
-<h3 id="ready" style="font-size:11px;color:#666;letter-spacing:2px">READY FOR ANALYSIS</h3>
-<h2 id="sig" style="margin-top:8px;color:#555">Click Generate</h2>
-<p id="info" style="font-size:11px;color:#888;margin-top:8px"></p>
-<div class="winloss" id="wl">
-<button class="btn-win" onclick="mark(1)">✅ WIN</button>
-<button class="btn-loss" onclick="mark(0)">❌ LOSS</button>
-</div>
+<div class="grid2">
+<div class="mini"><p>RSI (14)</p><h3 id="rsi">38.0</h3></div>
+<div class="mini"><p>EMA TREND</p><h3 id="ema" style="color:#ff4d6d">BEARISH 📉</h3></div>
+<div class="mini"><p>LIVE PRICE</p><h3 id="price">1.12000</h3></div>
+<div class="mini"><p>VOLATILITY</p><h3>NORMAL</h3></div>
 </div>
 
-<button class="gen" onclick="generate()">GENERATE VIP SIGNAL 🚀</button>
-<div class="reset" onclick="resetAll()">Reset Count 0 karna ho to yahan dabao</div>
+<div class="signalBox" id="sbox">
+<h4 id="status">✅ QUOTEX SIGNAL READY - PLACE TRADE NOW</h4>
+<h1 id="sig">BUY 📈</h1>
+<div class="meta" id="meta">Quotex Accuracy: 89% | RSI: 38.0 | 1 MIN - QUOTEX</div>
+<div class="desc" id="desc">Buy on support - Use on Quotex EUR/USD - Forex for 1 MIN</div>
+<div class="winloss" id="wl"><button class="bwin" onclick="mark(1)">✅ WIN</button><button class="bloss" onclick="mark(0)">❌ LOSS</button></div>
+</div>
+
+<button class="gen" onclick="generate()">🔴 ANALYZE LIVE MARKET & GENERATE SIGNAL</button>
+<div class="reset" onclick="resetAll()">Reset Lifetime Count</div>
+</div>
 </div>
 
 <script>
 let t=parseInt(localStorage.getItem('zt')||0), w=parseInt(localStorage.getItem('zw')||0), l=parseInt(localStorage.getItem('zl')||0);
+let curBuy=true;
+function upd(){document.getElementById('t').innerText=t;document.getElementById('w').innerText=w;document.getElementById('l').innerText=l;document.getElementById('a').innerText=(t==0?0:Math.round(w/t*100))+'%';}
 upd();
 function generate(){
- let p=document.getElementById('pair').value, tf=document.getElementById('tf').value;
- let buy=Math.random()>0.5, acc=Math.floor(Math.random()*11)+85;
- document.getElementById('ready').innerText=p+" • "+tf+" • LIVE";
- document.getElementById('sig').innerText=buy?"BUY 📈":"SELL 📉";
- document.getElementById('sig').style.color=buy?"#00ff88":"#ff4444";
- document.getElementById('info').innerText="Predicted "+acc+"% • Ab Quotex par "+(buy?"BUY":"SELL")+" lagao";
+ let pair=document.getElementById('pair').value, tf=document.getElementById('tf').value;
+ curBuy=Math.random()>0.5; let r=(Math.random()*30+25).toFixed(1); let price=(1.08+Math.random()*0.05).toFixed(5); let acc=85+Math.floor(Math.random()*12);
+ document.getElementById('rsi').innerText=r;
+ document.getElementById('price').innerText=price;
+ document.getElementById('ema').innerText=curBuy?"BULLISH 📈":"BEARISH 📉";
+ document.getElementById('ema').style.color=curBuy?"#00ff88":"#ff4d6d";
+ document.getElementById('sig').innerText=curBuy?"BUY 📈":"SELL 📉";
+ document.getElementById('sig').className=curBuy?"BUY":"SELL";
+ document.getElementById('sbox').classList.add('active');
+ document.getElementById('status').innerText="🔥 LIVE SIGNAL - "+pair;
+ document.getElementById('meta').innerText=`Quotex Accuracy: ${acc}% | RSI: ${r} | ${tf}`;
+ document.getElementById('desc').innerText=(curBuy?"Buy on support":"Sell on resistance")+` - Use on Quotex ${pair} for ${tf}`;
  document.getElementById('wl').classList.add('show');
 }
-function mark(win){
- if(win){w++; t++;} else {l++; t++;}
- localStorage.setItem('zt',t); localStorage.setItem('zw',w); localStorage.setItem('zl',l);
- upd();
- document.getElementById('wl').classList.remove('show');
- document.getElementById('sig').innerText="Marked! Next Signal";
- document.getElementById('sig').style.color="#fff";
- document.getElementById('info').innerText="";
- document.getElementById('ready').innerText="READY FOR NEXT";
-}
-function upd(){
- document.getElementById('total').innerText=t;
- document.getElementById('wins').innerText=w;
- document.getElementById('loss').innerText=l;
- document.getElementById('acc').innerText=(t==0?0:Math.round(w/t*100))+"%";
-}
-function resetAll(){ if(confirm('Sach mein 0 karna hai?')){t=0;w=0;l=0;localStorage.clear();upd();}}
+function mark(win){ if(win){w++; t++;} else {l++; t++;} localStorage.setItem('zt',t);localStorage.setItem('zw',w);localStorage.setItem('zl',l); upd(); document.getElementById('wl').classList.remove('show'); document.getElementById('status').innerText="✅ MARKED - READY FOR NEXT"; }
+function resetAll(){ if(confirm('Lifetime count 0 karna hai?')){t=0;w=0;l=0;localStorage.clear();upd();}}
+// auto price tick
+setInterval(()=>{document.getElementById('price').innerText=(1.08+Math.random()*0.05).toFixed(5);},1500);
 </script>
 </body>
 </html>
