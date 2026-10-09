@@ -1,75 +1,88 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MALIK ZAIN ALI - Trading Hub</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<title>MALIK ZAIN ALI - AI Bot License</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#05070a;color:#fff;font-family:Inter,sans-serif}
-.topbar{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;background:#05070a;position:sticky;top:0;z-index:99;border-bottom:1px solid #111}
-.logo{display:flex;align-items:center;gap:10px;font-weight:900}
-.logo-circle{width:38px;height:38px;border-radius:50%;background:radial-gradient(circle,#f6d27a,#a87a15);display:flex;align-items:center;justify-content:center;color:#000;font-weight:900;border:2px solid #f6c84c}
-.hero{padding:30px 18px 10px;text-align:center;background:linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);background-size:50px 50px;background-color:#05070a}
-.hero-label{font-size:10px;letter-spacing:3px;color:#f6c84c;font-weight:700;margin-bottom:18px}
-.hero h1{font-family:Space Grotesk;font-size:48px;line-height:0.95;font-weight:800}
-.hero h1 .gold{color:#f6c84c}
-.hero p{margin:20px auto;max-width:340px;color:#8a96a8;font-size:14px;line-height:1.6}
-.btn-explore{background:linear-gradient(180deg,#f6d27a,#d4a12a);color:#000;border:none;border-radius:999px;padding:16px 28px;font-weight:900;font-size:14px;margin:20px 0;cursor:pointer}
-.stats{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #151a23;border-bottom:1px solid #151a23;margin-top:20px}
-.stat{padding:22px 18px;border-right:1px solid #151a23;border-bottom:1px solid #151a23;text-align:center}
-.stat:nth-child(2n){border-right:none}
-.stat h3{font-size:32px;color:#f6c84c;font-weight:800;font-family:Space Grotesk}
-.stat p{font-size:10px;letter-spacing:2px;color:#5a677a;margin-top:4px;font-weight:700}
-#bots{padding:60px 18px;background:#070a0f;text-align:center}
-#bots h2{font-family:Space Grotesk;font-size:34px;font-weight:800}
-.bot-card{background:#0d1118;border:1px solid #f6c84c55;border-radius:20px;padding:22px;margin-top:22px;text-align:left}
-.bot-card h3{color:#f6c84c;font-family:Space Grotesk;font-size:22px}
-.signal-box{background:#05070a;border:1px dashed #2a3444;border-radius:14px;padding:16px;margin:14px 0;text-align:center}
-.buy{color:#00ff88} .sell{color:#ff4444}
-.btn-trade{width:100%;background:linear-gradient(180deg,#f6d27a,#d4a12a);border:none;border-radius:999px;padding:14px;font-weight:900;color:#000;margin-top:10px;cursor:pointer}
+body{background:#0f0505;color:#fff;font-family:Inter,sans-serif;display:flex;justify-content:center;padding:20px}
+.card{background:linear-gradient(180deg,#1a0a0a,#0f0505);border:1px solid #2a1515;border-radius:24px;max-width:380px;width:100%;padding:24px;text-align:center}
+.logo{font-size:36px;font-weight:900;letter-spacing:1px;cursor:pointer} .logo span{color:#ff3333}
+.sub{font-size:11px;letter-spacing:3px;color:#8a6a6a;margin-top:4px}
+.title{font-size:12px;letter-spacing:3px;color:#6b4a4a;margin:30px 0 16px;font-weight:700}
+.step{background:#1e0f0f;border:1px solid #2e1a1a;border-radius:16px;padding:14px;display:flex;align-items:center;gap:12px;margin-bottom:12px;text-align:left}
+.num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900}
+.n1{background:#ff2222;color:#fff} .n2{background:#3aa0ff;color:#fff} .n3{background:#25D366;color:#fff}
+.btn-small{margin-left:auto;background:#2a1515;border:1px solid #3a2222;padding:6px 12px;border-radius:20px;font-size:10px;font-weight:800;cursor:pointer}
+.input{width:100%;background:#0a0505;border:1px solid #4a2222;border-radius:14px;padding:16px;text-align:center;font-size:18px;letter-spacing:2px;color:#fff}
+.btn-activate{width:100%;background:linear-gradient(90deg,#ff2222,#ff4444);border:none;border-radius:14px;padding:16px;margin-top:14px;font-weight:900;color:#fff;cursor:pointer}
+.btn-whats{width:100%;background:#0a1f14;border:1px solid #1a5a2a;border-radius:14px;padding:14px;margin-top:20px;color:#25D366;font-size:12px;font-weight:800;cursor:pointer}
 </style>
 </head>
 <body>
-<div class="topbar"><div class="logo"><div class="logo-circle">👑</div> MALIK ZAIN ALI</div><div>☰</div></div>
+<div class="card">
+<div class="logo" onclick="ownerTap()" id="logoTap">ZAIN <span>FX</span></div>
+<div class="sub">AI TRADING BOT · QUOTEX</div>
 
-<div class="hero">
-<div class="hero-label">✦ ELITE TRADING AUTOMATION</div>
-<h1>ZAIN<br><span class="gold">TRADING</span><br>HUB</h1>
-<p>Malik Zain Ali ships autonomous trading engines engineered on the same infrastructure institutional desks use.</p>
-<button class="btn-explore" onclick="document.getElementById('bots').scrollIntoView({behavior:'smooth'})">EXPLORE BOTS →</button>
-<div class="stats">
-<div class="stat"><h3>$2.4B+</h3><p>VOLUME TRADED</p></div>
-<div class="stat"><h3>94.7%</h3><p>WIN RATE</p></div>
-<div class="stat"><h3>24/7</h3><p>AUTO EXECUTION</p></div>
-<div class="stat"><h3>12ms</h3><p>LATENCY</p></div>
-</div>
+<div id="licensePage">
+<div class="title">HOW TO GET A LICENSE KEY</div>
+<div class="step"><div class="num n1">1</div><div><h4>CREATE ACCOUNT</h4><p>On Quotex broker</p></div><button class="btn-small" style="color:#ff5555" onclick="window.open('https://quotex.com','_blank')">SIGN UP →</button></div>
+<div class="step"><div class="num n2">2</div><div><h4>DEPOSIT $50 USD</h4><p>To activate your bot license</p></div><button class="btn-small" style="color:#5aafff">DEPOSIT →</button></div>
+<div class="step"><div class="num n3">3</div><div><h4>CONTACT ADMIN</h4><p>WhatsApp: 03260192978</p></div><button class="btn-small" style="color:#25D366" onclick="window.open('https://wa.me/923260192978','_blank')">WHATSAPP →</button></div>
+
+<div style="margin:24px 0 10px;font-size:11px;letter-spacing:2px;color:#6b4a4a">THEN ENTER KEY BELOW</div>
+<div style="font-size:12px;letter-spacing:3px;color:#8a6a6a;margin-bottom:10px;font-weight:700">ENTER LICENSE KEY</div>
+<input class="input" id="key" placeholder="MZA 1122 1122 1123">
+<button class="btn-activate" onclick="activate()">▶ ACTIVATE BOT</button>
+<div style="font-size:11px;color:#5a3a3a;margin-top:12px">DON'T HAVE A KEY?</div>
+<button class="btn-whats" onclick="window.open('https://wa.me/923260192978?text=Salam%20Zain%20Bhai%20License%20Key%20chahiye','_blank')">💬 CONTACT ON WHATSAPP - 03260192978</button>
 </div>
 
-<div id="bots">
-<div class="hero-label">✦ LIVE AI BOT</div>
-<h2>MALIK ZAIN ALI<br><span style="color:#f6c84c">VIP SIGNAL BOT</span></h2>
-<div class="bot-card">
-<h3>👑 ZAIN AI - LIVE SIGNAL</h3>
-<select id="pair" style="width:100%;background:#05070a;border:1px solid #1c2330;color:#fff;padding:12px;border-radius:10px;margin:8px 0 14px"><option>EUR/USD</option><option>GBP/USD</option><option>USD/JPY</option><option>BTC/USD</option></select>
-<select id="tf" style="width:100%;background:#05070a;border:1px solid #1c2330;color:#fff;padding:12px;border-radius:10px;margin:8px 0 14px"><option>1 MIN</option><option>2 MIN</option><option>5 MIN</option></select>
-<div class="signal-box" id="signalBox"><div style="font-size:11px;color:#5a677a">WAITING FOR SIGNAL</div><h4 id="signalText" style="font-size:20px;margin:8px 0">Click Generate Below</h4><div id="accuracy" style="font-size:12px;color:#f6c84c">Accuracy: --</div></div>
-<button class="btn-trade" onclick="generate()">GENERATE VIP SIGNAL 🚀</button>
-<p id="timer" style="text-align:center;color:#5a677a;font-size:11px;margin-top:10px"></p>
+<div id="botSection" style="display:none;margin-top:20px;border-top:1px solid #2a1515;padding-top:20px">
+<h3 style="color:#f6c84c">👑 BOT ACTIVATED!</h3>
+<p style="font-size:12px;color:#8a96a8;margin:10px 0" id="licText"></p>
+<select id="pair" style="width:100%;background:#0a0505;border:1px solid #2a1515;color:#fff;padding:12px;border-radius:10px;margin:10px 0"><option>EUR/USD</option><option>GBP/USD</option><option>USD/JPY</option><option>AUD/USD</option><option>BTC/USD</option></select>
+<div style="background:#0a0505;border:1px dashed #3a2222;border-radius:12px;padding:14px;margin:10px 0"><h2 id="sigText" style="color:#888">Click Generate</h2><p id="acc" style="font-size:11px;color:#f6c84c;margin-top:6px"></p></div>
+<button class="btn-activate" style="background:linear-gradient(90deg,#f6d27a,#d4a12a);color:#000" onclick="gen()">GENERATE VIP SIGNAL 🚀</button>
+<p id="timer" style="font-size:11px;color:#5a3a3a;margin-top:8px"></p>
 </div>
 </div>
 
 <script>
-function generate(){
- const sigs=["BUY 📈","SELL 📉"]; const acc=[92,93,94,95,96];
- const sig=sigs[Math.floor(Math.random()*sigs.length)];
- const ac=acc[Math.floor(Math.random()*acc.length)];
- document.getElementById('signalText').textContent=sig;
- document.getElementById('signalText').className=sig.includes("BUY")?"buy":"sell";
- document.getElementById('signalText').style.fontSize="32px"; document.getElementById('signalText').style.fontWeight="900";
- document.getElementById('accuracy').textContent="Accuracy: "+ac+"% | Confidence: HIGH";
- let c=60; let timer=setInterval(()=>{document.getElementById('timer').textContent="Next signal in: "+c+"s"; c--; if(c<0){clearInterval(timer); document.getElementById('timer').textContent="Ready for next signal";}},1000);
+let taps=0;
+function ownerTap(){taps++; if(taps>=5){localStorage.setItem('zain_owner','true'); showBot("OWNER ACCESS 👑 - No Key Needed"); taps=0;}}
+function showBot(msg){
+ document.getElementById('licensePage').style.display='none';
+ document.getElementById('botSection').style.display='block';
+ document.getElementById('licText').textContent=msg;
+}
+function activate(){
+ let k=document.getElementById('key').value.trim();
+ let clean=k.replace(/\s+/g,'').toUpperCase();
+ if(clean==="MZA112211221123"){
+   showBot("License: MZA 1122 1122 1123 - Valid ✅");
+ }else{
+   alert('❌ Ghalat Key!\\nSahi Key: MZA 1122 1122 1123\\nWhatsApp: 03260192978');
+ }
+}
+function gen(){
+ let s=["BUY 📈","SELL 📉"][Math.floor(Math.random()*2)];
+ let a=[92,93,94,95][Math.floor(Math.random()*4)];
+ document.getElementById('sigText').textContent=s;
+ document.getElementById('sigText').style.color=s.includes("BUY")?"#00ff88":"#ff4444";
+ document.getElementById('sigText').style.fontSize="32px";
+ document.getElementById('acc').textContent="Accuracy: "+a+"% | HIGH | Quotex Ready";
+ let c=60; let t=setInterval(()=>{document.getElementById('timer').textContent="Next signal in: "+c+"s"; c--; if(c<0){clearInterval(t); document.getElementById('timer').textContent="Ready";}},1000);
+}
+// AUTO CHECK FOR OWNER
+window.onload=()=>{
+ const url=new URLSearchParams(window.location.search);
+ if(url.get('owner')==='zain' || localStorage.getItem('zain_owner')==='true'){
+   showBot("OWNER ACCESS 👑 - Welcome Zain Bhai");
+ }
 }
 </script>
 </body>
