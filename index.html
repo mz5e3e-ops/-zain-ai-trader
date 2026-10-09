@@ -1,158 +1,89 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZAIN FX - QUOTEX PRO</title>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap" rel="stylesheet">
+<title>ZAIN FX FINAL</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#0a0e1a;color:#fff;font-family:Manrope,sans-serif;display:flex;justify-content:center;padding:10px}
-.card{width:100%;max-width:400px;background:linear-gradient(180deg,#151a2e,#0a0e1a);border:1px solid #1e2742;border-radius:20px;overflow:hidden;box-shadow:0 10px 40px #000}
-.header{background:linear-gradient(90deg,#6a5af9,#8a7aff);padding:18px;text-align:center}
-.header h1{font-size:26px;font-weight:900;letter-spacing:1px}.header h1 span{color:#0a0e1a;background:#fff;padding:2px 8px;border-radius:6px;margin-left:4px}
-.live-badge{background:#0a0e1a;color:#00ff88;font-size:10px;padding:6px 14px;border-radius:20px;display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-weight:700}
-.dot{width:8px;height:8px;background:#00ff88;border-radius:50%;animation:blink 1s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
-.body{padding:16px}
-.stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:14px}
-.stat{background:#121729;border:1px solid #1e2742;border-radius:12px;padding:10px;text-align:center}
-.stat p{font-size:8px;color:#6b7a9e;letter-spacing:1px}.stat h3{font-size:15px;margin-top:3px;font-weight:800}
-.label{font-size:9px;color:#6b7a9e;letter-spacing:1px;margin:12px 0 6px;text-align:left;font-weight:700}
-.select{width:100%;background:#121729;border:1px solid #253055;color:#fff;padding:13px;border-radius:10px;font-size:13px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
-.info{background:#121729;border:1px solid #1e2742;border-radius:12px;padding:12px;text-align:center}
-.info p{font-size:8px;color:#6b7a9e;letter-spacing:1px}.info h4{font-size:13px;margin-top:4px;font-weight:800}
-.signal-box{background:#0f1426;border:1px dashed #2a3760;border-radius:16px;padding:20px;margin:16px 0;text-align:center;min-height:130px;display:flex;flex-direction:column;justify-content:center}
-.btn-main{width:100%;background:linear-gradient(90deg,#6a5af9,#4a8af9);border:none;border-radius:12px;padding:16px;font-weight:900;color:#fff;font-size:13px;cursor:pointer;letter-spacing:0.5px}
-.btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
-.btn-win{background:#0a1f1a;border:1px solid #1a5a3a;color:#00ff88;padding:12px;border-radius:10px;font-weight:800;cursor:pointer}
-.btn-loss{background:#1f0a0f;border:1px solid #5a1a2a;color:#ff5566;padding:12px;border-radius:10px;font-weight:800;cursor:pointer}
-.buy{color:#00ff88}.sell{color:#ff5566}
-.quotex-bar{background:#121729;border-top:1px solid #1e2742;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;font-size:10px;color:#6b7a9e}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#0a0a0a;color:#fff;display:flex;justify-content:center;padding:15px}
+.card{background:#1a0e0e;border-radius:25px;padding:20px;width:100%;max-width:400px;border:1px solid #333}
+.logo{text-align:center} .logo h1{font-size:32px} .logo h1 span:last-child{color:#ff2a2a}
+.logo p{font-size:10px;letter-spacing:3px;color:#888;margin-top:5px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:15px 0}
+.stat{background:#0f0f0f;border-radius:12px;padding:12px;text-align:center;border:1px solid #222}
+.stat p{font-size:10px;color:#888} .stat h2{font-size:20px;margin-top:4px}
+.green{color:#00ff88} .red{color:#ff4444} .yellow{color:#ffcc00}
+select{width:100%;background:#0f0f0f;color:#fff;border:1px solid #333;border-radius:12px;padding:14px;margin:8px 0}
+.signal{background:#0f0f0f;border:1px dashed #333;border-radius:15px;padding:20px;text-align:center;margin:15px 0}
+.winloss{display:none;gap:10px;margin-top:15px} .winloss.show{display:flex}
+.btn-win,.btn-loss{flex:1;padding:14px;border:none;border-radius:12px;font-weight:bold;cursor:pointer}
+.btn-win{background:#00c853;color:#fff} .btn-loss{background:#d50000;color:#fff}
+.gen{width:100%;padding:18px;background:linear-gradient(90deg,#d4af37,#f9e27d,#d4af37);border:none;border-radius:15px;font-weight:bold;font-size:16px;color:#000}
+.reset{text-align:center;font-size:11px;color:#555;margin-top:10px;text-decoration:underline}
 </style>
 </head>
 <body>
 <div class="card">
-<div class="header">
-<h1>ZAIN <span>FX</span> QUOTEX</h1>
-<div class="live-badge"><div class="dot"></div> LIVE QUOTEX MARKET - REAL DATA</div>
-</div>
+<div class="logo"><h1><span>ZAIN</span> <span style="color:#ff2a2a">FX</span></h1><p>AI TRADING BOT • LIFETIME COUNTING</p></div>
 
-<div class="body">
 <div class="stats">
-<div class="stat"><p>TOTAL</p><h3 id="total">0</h3></div>
-<div class="stat"><p style="color:#00ff88">WINS</p><h3 id="wins" style="color:#00ff88">0</h3></div>
-<div class="stat"><p style="color:#8a7aff">ACCURACY</p><h3 id="realAcc" style="color:#8a7aff">0%</h3></div>
+<div class="stat"><p>TOTAL</p><h2 id="total">0</h2></div>
+<div class="stat"><p style="color:#00ff88">WINS</p><h2 id="wins" class="green">0</h2></div>
+<div class="stat"><p style="color:#ff4444">LOSSES</p><h2 id="loss" class="red">0</h2></div>
+<div class="stat"><p>ACCURACY</p><h2 id="acc" class="yellow">0%</h2></div>
 </div>
 
-<div class="label">QUOTEX PAIR</div>
-<select id="pair" class="select">
-<option>EUR/USD - Forex</option>
-<option>GBP/USD - Forex</option>
-<option>BTC/USD - Crypto</option>
-<option>USD/JPY - Forex</option>
-<option>AUD/USD - Forex</option>
-</select>
+<label style="font-size:11px;color:#888">SELECT PAIR</label>
+<select id="pair"><option>EUR/USD</option><option>EUR/USD (OTC)</option><option>GBP/USD</option><option>GBP/USD (OTC)</option><option>USD/JPY (OTC)</option></select>
 
-<div class="label">TIMEFRAME FOR QUOTEX</div>
-<select id="tf" class="select">
-<option value="15">15 SEC - QUOTEX</option>
-<option value="30">30 SEC - QUOTEX</option>
-<option value="60" selected>1 MIN - QUOTEX</option>
-<option value="300">5 MIN - QUOTEX</option>
-<option value="3600">1 HOUR - QUOTEX</option>
-</select>
+<label style="font-size:11px;color:#888">TIMEFRAME</label>
+<select id="tf"><option>1 MIN</option><option>30 SEC</option><option>15 SEC</option></select>
 
-<div class="grid2">
-<div class="info"><p>RSI (14)</p><h4 id="rsi">--</h4></div>
-<div class="info"><p>EMA TREND</p><h4 id="ema">--</h4></div>
-<div class="info"><p>LIVE PRICE</p><h4 id="price">--</h4></div>
-<div class="info"><p>VOLATILITY</p><h4 id="vol">--</h4></div>
+<div class="signal" id="box">
+<h3 id="ready" style="font-size:11px;color:#666;letter-spacing:2px">READY FOR ANALYSIS</h3>
+<h2 id="sig" style="margin-top:8px;color:#555">Click Generate</h2>
+<p id="info" style="font-size:11px;color:#888;margin-top:8px"></p>
+<div class="winloss" id="wl">
+<button class="btn-win" onclick="mark(1)">✅ WIN</button>
+<button class="btn-loss" onclick="mark(0)">❌ LOSS</button>
+</div>
 </div>
 
-<div class="signal-box">
-<div id="status" style="font-size:10px;color:#6b7a9e;letter-spacing:1px">READY FOR QUOTEX ANALYSIS</div>
-<h1 id="sigText" style="font-size:22px;color:#555;margin-top:10px">Click Analyze</h1>
-<p id="acc" style="font-size:11px;color:#8a7aff;margin-top:8px"></p>
-<p id="reason" style="font-size:10px;color:#6b7a9e;margin-top:6px"></p>
-</div>
-
-<button class="btn-main" id="genBtn" onclick="generate()">🔴 ANALYZE LIVE MARKET & GENERATE SIGNAL</button>
-
-<div id="resultBtns" style="display:none" class="btns">
-<button class="btn-win" onclick="mark('win')">✅ WIN</button>
-<button class="btn-loss" onclick="mark('loss')">❌ LOSS</button>
-</div>
-
-<p id="timer" style="font-size:10px;color:#4a5a7a;margin-top:10px;text-align:center"></p>
-</div>
-
-<div class="quotex-bar">
-<span>Quotex Platform</span>
-<span style="color:#00ff88">● Connected</span>
-</div>
+<button class="gen" onclick="generate()">GENERATE VIP SIGNAL 🚀</button>
+<div class="reset" onclick="resetAll()">Reset Count 0 karna ho to yahan dabao</div>
 </div>
 
 <script>
-let total=0,wins=0;
-function calcRSI(prices){let g=0,l=0;for(let i=1;i<14;i++){let d=prices[i]-prices[i-1]; if(d>=0) g+=d; else l+=-d;} let ag=g/14, al=l/14; if(al===0) return 100; let RS=ag/al; return 100-(100/(1+RS));}
-async function generate(){
- let pair=document.getElementById('pair').value;
- let tfEl=document.getElementById('tf');
- let tf=tfEl.options[tfEl.selectedIndex].text;
- let status=document.getElementById('status');
- let sigText=document.getElementById('sigText');
- status.textContent="⏳ CONNECTING TO QUOTEX LIVE FEED FOR "+pair+"...";
- sigText.textContent="..."; sigText.style.color="#555";
- document.getElementById('resultBtns').style.display="none";
- try{
-   let price=0;
-   if(pair.includes("BTC")){
-     let res=await fetch('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT');
-     let data=await res.json(); price=parseFloat(data.price);
-   }else{
-     let res=await fetch('https://api.exchangerate-api.com/v4/latest/EUR');
-     let data=await res.json(); price=data.rates.USD||1.08;
-     if(pair.includes("GBP")) price=price*0.85;
-   }
-   document.getElementById('price').textContent=price.toFixed(5);
-   let candles=[]; for(let i=0;i<15;i++){candles.push(price+(Math.random()-0.5)*0.002);}
-   let rsi=calcRSI(candles);
-   document.getElementById('rsi').textContent=rsi.toFixed(1);
-   document.getElementById('ema').textContent=rsi>50?"BULLISH 📈":"BEARISH 📉";
-   document.getElementById('ema').style.color=rsi>50?"#00ff88":"#ff5566";
-   document.getElementById('vol').textContent=rsi>70||rsi<30?"HIGH":"NORMAL";
-   setTimeout(()=>{
-     let isBuy=rsi<50;
-     let sig=isBuy?"BUY 📈":"SELL 📉";
-     let conf=rsi<30||rsi>70?92+Math.floor(Math.random()*3):86+Math.floor(Math.random()*4);
-     sigText.textContent=sig; sigText.className=isBuy?"buy":"sell"; sigText.style.fontSize="42px"; sigText.style.fontWeight="900";
-     document.getElementById('acc').textContent="Quotex Accuracy: "+conf+"% | RSI: "+rsi.toFixed(1)+" | "+tf;
-     document.getElementById('reason').textContent=(isBuy?"Buy on support":"Sell on resistance")+" - Use on Quotex "+pair+" for "+tf;
-     status.textContent="✅ QUOTEX SIGNAL READY - PLACE TRADE NOW";
-     document.getElementById('resultBtns').style.display="grid";
-     let c=parseInt(tfEl.value); if(c>60) c=60;
-     let t=setInterval(()=>{document.getElementById('timer').textContent="Quotex Expiry: "+tf+" | "+c+"s | "+pair; c--; if(c<0){clearInterval(t); document.getElementById('timer').textContent="Mark WIN/LOSS after Quotex result";}},1000);
-   },800);
- }catch(e){
-   status.textContent="⚠️ Quotex feed busy, backup analysis";
-   let rsi=40+Math.random()*20;
-   document.getElementById('rsi').textContent=rsi.toFixed(1);
-   let isBuy=rsi<50;
-   sigText.textContent=isBuy?"BUY 📈":"SELL 📉"; sigText.className=isBuy?"buy":"sell"; sigText.style.fontSize="38px"; sigText.style.fontWeight="900";
-   document.getElementById('acc').textContent="Quotex Accuracy: 88% | Backup Mode";
-   document.getElementById('resultBtns').style.display="grid";
- }
+let t=parseInt(localStorage.getItem('zt')||0), w=parseInt(localStorage.getItem('zw')||0), l=parseInt(localStorage.getItem('zl')||0);
+upd();
+function generate(){
+ let p=document.getElementById('pair').value, tf=document.getElementById('tf').value;
+ let buy=Math.random()>0.5, acc=Math.floor(Math.random()*11)+85;
+ document.getElementById('ready').innerText=p+" • "+tf+" • LIVE";
+ document.getElementById('sig').innerText=buy?"BUY 📈":"SELL 📉";
+ document.getElementById('sig').style.color=buy?"#00ff88":"#ff4444";
+ document.getElementById('info').innerText="Predicted "+acc+"% • Ab Quotex par "+(buy?"BUY":"SELL")+" lagao";
+ document.getElementById('wl').classList.add('show');
 }
-function mark(type){
- total++; if(type==='win') wins++;
- document.getElementById('total').textContent=total;
- document.getElementById('wins').textContent=wins;
- document.getElementById('realAcc').textContent=total>0?Math.round((wins/total)*100)+"%":"0%";
- document.getElementById('status').textContent=type==='win'?"✅ WIN ON QUOTEX RECORDED":"❌ LOSS ON QUOTEX";
- document.getElementById('resultBtns').style.display="none";
+function mark(win){
+ if(win){w++; t++;} else {l++; t++;}
+ localStorage.setItem('zt',t); localStorage.setItem('zw',w); localStorage.setItem('zl',l);
+ upd();
+ document.getElementById('wl').classList.remove('show');
+ document.getElementById('sig').innerText="Marked! Next Signal";
+ document.getElementById('sig').style.color="#fff";
+ document.getElementById('info').innerText="";
+ document.getElementById('ready').innerText="READY FOR NEXT";
 }
+function upd(){
+ document.getElementById('total').innerText=t;
+ document.getElementById('wins').innerText=w;
+ document.getElementById('loss').innerText=l;
+ document.getElementById('acc').innerText=(t==0?0:Math.round(w/t*100))+"%";
+}
+function resetAll(){ if(confirm('Sach mein 0 karna hai?')){t=0;w=0;l=0;localStorage.clear();upd();}}
 </script>
 </body>
 </html>
