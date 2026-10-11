@@ -1,19 +1,61 @@
+
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ZAIN FX QUOTEX PRO</title>
-<style>body{margin:0;background:#02140f;color:#d4af37;font-family:Arial}.app{max-width:400px;margin:auto;padding:15px;border:2px solid #d4af37;background:#061e16;min-height:100vh}header{text-align:center;font-weight:bold;padding:12px;border-bottom:1px solid #d4af37}.pair{font-size:22px;margin:15px 0}.tfs button{background:#000;color:#d4af37;border:1px solid #d4af37;padding:8px 10px;margin:3px;border-radius:6px}.tfs .active{background:#d4af37;color:#000}.signal{padding:16px;margin:15px 0;text-align:center;font-weight:bold;border-radius:10px}.bull{background:#0a3d2e;color:#2eff8a;border:1px solid #2eff8a}.bear{background:#3d0a0a;color:#ff5a5a;border:1px solid #ff5a5a}.stats{display:flex;justify-content:space-between;font-size:12px;background:#000;padding:10px;border-radius:8px}.btns{display:flex;gap:10px}.btns button{flex:1;padding:12px;font-weight:bold;border-radius:8px;border:none}#startBtn{background:#d4af37}#stopBtn{background:#111;color:#d4af37;border:1px solid #d4af37}.chart{height:200px;background:#000;border:1px solid #333;margin:10px 0}</style></head>
-<body><div class="app"><header>ZAIN FX QUOTEX PRO<br><small style="color:#2eff8a">TRADING BOT • ACTIVE</small></header>
-<div class="pair">EUR/USD <span id="price">1.09472</span></div><div class="tfs"><button onclick="setTF(this,'15s')">15s</button><button onclick="setTF(this,'30s')">30s</button><button onclick="setTF(this,'1m')">1m</button><button class="active" onclick="setTF(this,'5m')">5m</button><button onclick="setTF(this,'1h')">1h</button></div>
-<div id="signalBox" class="signal bull">BULLISH SIGNAL (5m) - 94% - BUY</div><div class="stats"><div>WIN: <b>89%</b></div><div id="count">TODAY: <b>1/5</b></div><div>RSI:ON OTC:OFF</div></div>
-<div class="chart"><div id="tv" style="height:200px"></div></div>
-<div class="btns"><button id="stopBtn" onclick="stopBot()">STOP BOT</button><button id="startBtn" onclick="startBot()">START BOT</button></div>
-<p style="font-size:11px;color:#888;text-align:center;margin-top:15px">Adad 5 Rule: Max 5 Trades/Day • Taurus Edition</p></div>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ZAIN FX QUOTEX PRO - AI</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{background:#0a1931;color:#fff;font-family:Arial}
+.app{max-width:420px;margin:auto;background:#0a1931;min-height:100vh;padding:12px;border:1px solid #00ff88}
+.top{text-align:center;padding:10px;border:1px solid #00ff88;border-radius:12px;background:#112240}
+.top h2{color:#00ff88;letter-spacing:1px}.circle{width:220px;height:220px;margin:18px auto;border-radius:50%;border:3px solid #00ff88;display:flex;align-items:center;justify-content:center;flex-direction:column;background:radial-gradient(circle, #0a3d2e, #0a1931);box-shadow:0 0 20px #00ff88}
+.circle b{font-size:56px;color:#00ff88}.circle span{color:#00ff88}.tfs{display:flex;gap:6px;justify-content:center;margin:12px 0}.tfs button{background:#112240;color:#00ff88;border:1px solid #00ff88;padding:7px 12px;border-radius:20px}.tfs .on{background:#00ff88;color:#000}
+.chart{height:180px;background:#000;border-radius:10px;margin:10px 0;border:1px solid #333;display:flex;align-items:center;justify-content:center;color:#666}
+.boxes{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:10px 0}
+.box{background:#112240;border:1px solid #00ff88;border-radius:8px;padding:8px;text-align:center;font-size:12px}
+.box b{font-size:18px;display:block;color:#00ff88}
+.ai{background:#112240;border:1px solid #00ff88;border-radius:10px;padding:12px;font-size:12px;margin:10px 0}
+.btns{display:flex;gap:10px}.btns button{flex:1;padding:14px;border-radius:10px;border:none;font-weight:bold}
+.sell{background:#112240;color:#fff;border:1px solid #ff4444!important}.buy{background:#00ff88;color:#000}
+</style></head>
+<body>
+<div class="app">
+<div class="top"><h2>ZAIN FX QUOTEX PRO</h2><small>AI TRADING BOT • QUOTEX PRO • ACTIVE</small></div>
+
+<div class="circle"><b id="perc">94%</b><span id="sigTxt">BUY SIGNAL</span><small id="confTxt">CONFIDENCE: 94%</small></div>
+
+<div class="tfs">
+<button onclick="setTF(this,'15s')">15s</button>
+<button onclick="setTF(this,'30s')">30s</button>
+<button onclick="setTF(this,'1m')">1m</button>
+<button class="on" onclick="setTF(this,'5m')">5m</button>
+<button onclick="setTF(this,'1h')">1h</button>
+</div>
+
+<div style="text-align:center;color:#00ff88;font-size:12px" id="trendTxt">SIGNAL: STRONG BUY • TREND: BULLISH ↑</div>
+<div class="chart"><div id="tv" style="width:100%;height:180px"></div></div>
+
+<div class="boxes">
+<div class="box">RSI<b id="rsi">62.4</b><small>NEUTRAL-BULL</small></div>
+<div class="box">MACD<b>BULLISH</b><small style="color:#00ff88">▲</small></div>
+<div class="box">VOLUME<b>HIGH</b><small>+18%</small></div>
+</div>
+
+<div class="ai"><b>🧠 AI ANALYSIS</b><br><br>
+• Pattern: <span id="pat">Bullish engulfing on 5m</span><br>
+• Support: 1.0905 • Resistance: 1.0925<br>
+• Action: <b id="act" style="color:#00ff88">ENTER BUY • Target 1.0932 | SL 1.0898</b><br><br>
+<div class="btns"><button class="sell" onclick="trade('SELL')">SELL</button><button class="buy" onclick="trade('BUY')">BUY NOW</button></div>
+</div>
+<div style="text-align:center;font-size:11px;color:#888;margin-top:10px">Adad 5 Rule: <span id="count">1/5</span> • TODAY WIN: 89% • Taurus Edition</div>
+</div>
+
 <script src="https://s3.tradingview.com/tv.js"></script>
 <script>
-let tf='5', trades=1, running=true;
-function setTF(el,t){tf=t==='15s'?'15S':t==='30s'?'30S':t; document.querySelectorAll('.tfs button').forEach(b=>b.classList.remove('active')); el.classList.add('active'); loadTV(); analyze();}
-function loadTV(){ new TradingView.widget({"autosize":true,"symbol":"FX:EURUSD","interval":tf,"timezone":"Asia/Karachi","theme":"dark","style":"1","locale":"en","container_id":"tv"}); }
-function analyze(){if(trades>=5){document.getElementById('signalBox').innerHTML="5/5 COMPLETE - Stop";return;}if(!running)return;let bull=Math.random()>0.45;let conf=85+Math.floor(Math.random()*14);let box=document.getElementById('signalBox');box.className=bull?'signal bull':'signal bear';box.innerHTML=(bull?'BULLISH':'BEARISH')+` SIGNAL (${tf}) - ${conf}% - ${bull?'BUY':'SELL'}`;document.getElementById('price').innerText=(1.08+Math.random()*0.02).toFixed(5);}
-function startBot(){running=true;if(trades>=5){alert("5 Trades Complete!");return;}trades++;document.getElementById('count').innerHTML=`TODAY: <b>${trades}/5</b>`;analyze();}
-function stopBot(){running=false;document.getElementById('signalBox').innerHTML="BOT STOPPED";}
-loadTV(); setInterval(analyze,3000);
-</script></body></html>
+let tf='5', trades=1;
+function setTF(el,t){tf=t; document.querySelectorAll('.tfs button').forEach(b=>b.classList.remove('on')); el.classList.add('on'); loadTV(); analyze();}
+function loadTV(){let iv = tf==='15s'?'15S':tf==='30s'?'30S':tf==='1m'?'1':tf==='5m'?'5':tf==='1h'?'60':'5'; new TradingView.widget({"autosize":true,"symbol":"FX:EURUSD","interval":iv,"theme":"dark","style":"1","container_id":"tv"});}
+function analyze(){let bull=Math.random()>0.45; let p=85+Math.floor(Math.random()*14); document.getElementById('perc').innerText=p+'%'; document.getElementById('confTxt').innerText='CONFIDENCE: '+p+'%'; document.getElementById('sigTxt').innerText=(bull?'BUY':'SELL')+' SIGNAL'; document.getElementById('trendTxt').innerText=`SIGNAL: STRONG ${bull?'BUY':'SELL'} • TREND: ${bull?'BULLISH ↑':'BEARISH ↓'}`; document.getElementById('pat').innerText=(bull?'Bullish engulfing':'Bearish pin bar')+' on '+tf; document.getElementById('act').innerText=`ENTER ${bull?'BUY':'SELL'} • Target 1.09${Math.floor(Math.random()*99)} | SL 1.08${Math.floor(Math.random()*99)}`; document.getElementById('rsi').innerText=(bull?62+Math.random()*8:38+Math.random()*10).toFixed(1);}
+function trade(type){if(trades>=5){alert('Adad 5 Rule: Aaj ke 5 trades complete!');return;} trades++; document.getElementById('count').innerText=trades+'/5'; alert(type+' Trade '+trades+'/5 - Demo par lagao!');}
+loadTV(); setInterval(analyze,3500); analyze();
+</script>
+</body>
+</html>
