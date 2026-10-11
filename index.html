@@ -1,112 +1,19 @@
-
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZAIN FX QUOTEX PRO</title>
-<style>
-body{margin:0;background:#02140f;color:#d4af37;font-family:Arial}
-.app{max-width:400px;margin:auto;padding:15px;border:2px solid #d4af37;background:#061e16;min-height:100vh}
-header{text-align:center;font-weight:bold;padding:12px;border-bottom:1px solid #d4af37}
-.pair{font-size:22px;margin:15px 0}
-.pair span{float:right}
-.tfs button{background:#000;color:#d4af37;border:1px solid #d4af37;padding:8px 10px;margin:3px;border-radius:6px;cursor:pointer}
-.tfs .active{background:#d4af37;color:#000}
-.signal{padding:16px;margin:15px 0;text-align:center;font-weight:bold;border-radius:10px;font-size:16px}
-.bull{background:#0a3d2e;color:#2eff8a;border:1px solid #2eff8a}
-.bear{background:#3d0a0a;color:#ff5a5a;border:1px solid #ff5a5a}
-.stats{display:flex;justify-content:space-between;font-size:12px;background:#000;padding:10px;border-radius:8px;margin:10px 0}
-.btns{display:flex;gap:10px}
-.btns button{flex:1;padding:12px;font-weight:bold;border-radius:8px;border:none;cursor:pointer}
-#startBtn{background:#d4af37}
-#stopBtn{background:#111;color:#d4af37;border:1px solid #d4af37}
-.chart{height:180px;background:#000;border:1px solid #333;display:flex;align-items:center;justify-content:center;margin:10px 0;color:#666}
-</style>
-</head>
-<body>
-<div class="app">
-<header>ZAIN FX QUOTEX PRO<br><small style="color:#2eff8a">TRADING BOT • ACTIVE</small></header>
-<div class="pair">EUR/USD <span id="price">1.09234</span></div>
-
-<div class="tfs">
-<button onclick="setTF(this,'15s')">15s</button>
-<button onclick="setTF(this,'30s')">30s</button>
-<button onclick="setTF(this,'1m')">1m</button>
-<button class="active" onclick="setTF(this,'5m')">5m</button>
-<button onclick="setTF(this,'1h')">1h</button>
-</div>
-
-<div id="signalBox" class="signal bull">BULLISH SIGNAL (5m) - 92% - BUY</div>
-
-<div class="stats">
-<div>WIN: <b>89%</b></div>
-<div id="count">TODAY: <b>0/5</b></div>
-<div>RSI:ON OTC:OFF</div>
-</div>
-
-<div class="chart" id="chartBox">Live Chart - <span id="tfLabel">5m</span> Trending Analysis</div>
-
-<div class="btns">
-<button id="stopBtn" onclick="stopBot()">STOP BOT</button>
-<button id="startBtn" onclick="startBot()">START BOT</button>
-</div>
-
-<p style="font-size:11px;color:#888;text-align:center;margin-top:15px">Adad 5 Rule: Max 5 Trades/Day • Taurus Edition</p>
-</div>
-
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ZAIN FX QUOTEX PRO</title>
+<style>body{margin:0;background:#02140f;color:#d4af37;font-family:Arial}.app{max-width:400px;margin:auto;padding:15px;border:2px solid #d4af37;background:#061e16;min-height:100vh}header{text-align:center;font-weight:bold;padding:12px;border-bottom:1px solid #d4af37}.pair{font-size:22px;margin:15px 0}.tfs button{background:#000;color:#d4af37;border:1px solid #d4af37;padding:8px 10px;margin:3px;border-radius:6px}.tfs .active{background:#d4af37;color:#000}.signal{padding:16px;margin:15px 0;text-align:center;font-weight:bold;border-radius:10px}.bull{background:#0a3d2e;color:#2eff8a;border:1px solid #2eff8a}.bear{background:#3d0a0a;color:#ff5a5a;border:1px solid #ff5a5a}.stats{display:flex;justify-content:space-between;font-size:12px;background:#000;padding:10px;border-radius:8px}.btns{display:flex;gap:10px}.btns button{flex:1;padding:12px;font-weight:bold;border-radius:8px;border:none}#startBtn{background:#d4af37}#stopBtn{background:#111;color:#d4af37;border:1px solid #d4af37}.chart{height:200px;background:#000;border:1px solid #333;margin:10px 0}</style></head>
+<body><div class="app"><header>ZAIN FX QUOTEX PRO<br><small style="color:#2eff8a">TRADING BOT • ACTIVE</small></header>
+<div class="pair">EUR/USD <span id="price">1.09472</span></div><div class="tfs"><button onclick="setTF(this,'15s')">15s</button><button onclick="setTF(this,'30s')">30s</button><button onclick="setTF(this,'1m')">1m</button><button class="active" onclick="setTF(this,'5m')">5m</button><button onclick="setTF(this,'1h')">1h</button></div>
+<div id="signalBox" class="signal bull">BULLISH SIGNAL (5m) - 94% - BUY</div><div class="stats"><div>WIN: <b>89%</b></div><div id="count">TODAY: <b>1/5</b></div><div>RSI:ON OTC:OFF</div></div>
+<div class="chart"><div id="tv" style="height:200px"></div></div>
+<div class="btns"><button id="stopBtn" onclick="stopBot()">STOP BOT</button><button id="startBtn" onclick="startBot()">START BOT</button></div>
+<p style="font-size:11px;color:#888;text-align:center;margin-top:15px">Adad 5 Rule: Max 5 Trades/Day • Taurus Edition</p></div>
+<script src="https://s3.tradingview.com/tv.js"></script>
 <script>
-let tf='5m', trades=0, running=true;
-function setTF(el,t){
-  tf=t;
-  document.querySelectorAll('.tfs button').forEach(b=>b.classList.remove('active'));
-  el.classList.add('active');
-  document.getElementById('tfLabel').innerText=t;
-  analyze();
-}
-function analyze(){
-  if(trades>=5){
-    document.getElementById('signalBox').innerHTML="RULE COMPLETE - 5/5 Done - Kal milte hain Zain bhai!";
-    return;
-  }
-  if(!running) return;
-  let bull = Math.random()>0.45; // Trending bias bullish
-  let conf = 85 + Math.floor(Math.random()*14);
-  let box=document.getElementById('signalBox');
-  box.className = bull ? 'signal bull' : 'signal bear';
-  box.innerHTML = (bull?'BULLISH':'BEARISH')+` SIGNAL (${tf}) - ${conf}% - ${bull?'BUY':'SELL'}`;
-  document.getElementById('price').innerText=(1.08+Math.random()*0.02).toFixed(5);
-}
-function startBot(){
-  running=true;
-  if(trades>=5){alert("Aaj ke 5 trades pure ho gaye!");return;}
-  trades++;
-  document.getElementById('count').innerHTML=`TODAY: <b>${trades}/5</b>`;
-  analyze();
-}
-function stopBot(){ running=false; document.getElementById('signalBox').innerHTML="BOT STOPPED"; }
-setInterval(analyze, 2500);
-analyze();
-</script>
-</body>
-</html>
-<div class="chart" id="chartBox" style="padding:0; overflow:hidden">
-<!-- TradingView Widget -->
-<div id="tradingview_chart" style="height:180px;width:100%"></div>
-<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-<script>
-new TradingView.widget({
-  "autosize": true,
-  "symbol": "FX:EURUSD",
-  "interval": "5",
-  "timezone": "Asia/Karachi",
-  "theme": "dark",
-  "style": "1",
-  "locale": "en",
-  "toolbar_bg": "#061e16",
-  "enable_publishing": false,
-  "hide_top_toolbar": true,
-  "container_id": "tradingview_chart"
-});
-</script>
-</div>
+let tf='5', trades=1, running=true;
+function setTF(el,t){tf=t==='15s'?'15S':t==='30s'?'30S':t; document.querySelectorAll('.tfs button').forEach(b=>b.classList.remove('active')); el.classList.add('active'); loadTV(); analyze();}
+function loadTV(){ new TradingView.widget({"autosize":true,"symbol":"FX:EURUSD","interval":tf,"timezone":"Asia/Karachi","theme":"dark","style":"1","locale":"en","container_id":"tv"}); }
+function analyze(){if(trades>=5){document.getElementById('signalBox').innerHTML="5/5 COMPLETE - Stop";return;}if(!running)return;let bull=Math.random()>0.45;let conf=85+Math.floor(Math.random()*14);let box=document.getElementById('signalBox');box.className=bull?'signal bull':'signal bear';box.innerHTML=(bull?'BULLISH':'BEARISH')+` SIGNAL (${tf}) - ${conf}% - ${bull?'BUY':'SELL'}`;document.getElementById('price').innerText=(1.08+Math.random()*0.02).toFixed(5);}
+function startBot(){running=true;if(trades>=5){alert("5 Trades Complete!");return;}trades++;document.getElementById('count').innerHTML=`TODAY: <b>${trades}/5</b>`;analyze();}
+function stopBot(){running=false;document.getElementById('signalBox').innerHTML="BOT STOPPED";}
+loadTV(); setInterval(analyze,3000);
+</script></body></html>
